@@ -1,0 +1,12 @@
+[ERROR]	asctime:2019-08-28 18:27:41,373	module:views	message:("unsupported operand type(s) for /: 'str' and 'float'",)
+[ERROR]	asctime:2019-08-28 18:30:06,087	module:views	message:('t2注文が失敗しました。APIError(code=-1111): Precision is over the maximum defined for this asset.',)
+[ERROR]	asctime:2019-08-28 18:32:50,378	module:views	message:('t2注文が失敗しました。APIError(code=-1111): Precision is over the maximum defined for this asset.',)
+[ERROR]	asctime:2019-08-28 18:36:10,971	module:views	message:("Unknown format code 'f' for object of type 'str'",)
+[ERROR]	asctime:2019-08-28 18:37:28,299	module:views	message:("Unknown format code 'f' for object of type 'str'",)
+[INFO]	asctime:2019-08-28 18:40:16,494	module:views	message:[DONE] user:ishikawasyuusaku@gmail.com, osrId:23, profit:-0.00000534
+[ERROR]	asctime:2019-08-28 18:40:22,261	module:views	message:('t2注文が失敗しました。APIError(code=-2010): Account has insufficient balance for requested action.',)
+[INFO]	asctime:2019-08-28 18:47:21,393	module:views	message:[DONE] user:ishikawasyuusaku@gmail.com, osrId:24, profit:0.00004696
+[ERROR]	asctime:2019-08-28 18:47:25,869	module:views	message:('t2注文が失敗しました。APIError(code=-2010): Account has insufficient balance for requested action.',)
+[INFO]	asctime:2019-08-28 18:47:32,085	module:views	message:[DONE] user:ishikawasyuusaku@gmail.com, osrId:25, profit:0.00000309
+[INFO]	asctime:2019-08-28 18:47:36,862	module:views	message:[DONE] user:ishikawasyuusaku@gmail.com, osrId:26, profit:0.00088308
+[INFO]	asctime:2019-08-28 18:50:55,511	module:views	message:[DONE] user:ishikawasyuusaku@gmail.com, osrId:27, profit:0.00038305

@@ -1,0 +1,23 @@
+[ERROR]	asctime:2019-08-28 16:32:10,623	module:make_orders	message:name 'request' is not defined
+[ERROR]	asctime:2019-08-28 16:32:12,648	module:make_orders	message:name 'request' is not defined
+[ERROR]	asctime:2019-08-28 16:32:13,733	module:make_orders	message:name 'request' is not defined
+[INFO]	asctime:2019-08-28 16:32:47,338	module:make_orders	message:[DONE]id:16 profit:-0.00000995
+[ERROR]	asctime:2019-08-28 16:32:48,687	module:make_orders	message:t2注文が失敗しました。APIError(code=-2010): Account has insufficient balance for requested action.
+[INFO]	asctime:2019-08-28 16:32:50,271	module:make_orders	message:[DONE]id:17 profit:0.00025784
+[INFO]	asctime:2019-08-28 16:32:54,225	module:make_orders	message:[DONE]id:18 profit:0.00002272
+[INFO]	asctime:2019-08-28 16:32:56,803	module:make_orders	message:[DONE]id:19 profit:0.00026374
+[INFO]	asctime:2019-08-28 16:33:00,139	module:make_orders	message:[DONE]id:20 profit:0.00032243
+[ERROR]	asctime:2019-08-28 16:33:01,977	module:make_orders	message:t2注文が失敗しました。APIError(code=-2010): Account has insufficient balance for requested action.
+[INFO]	asctime:2019-08-28 16:33:04,194	module:make_orders	message:[DONE]id:21 profit:0.00019435
+[INFO]	asctime:2019-08-28 16:33:06,460	module:make_orders	message:[DONE]id:22 profit:0.00008209
+[ERROR]	asctime:2019-08-28 16:33:08,098	module:make_orders	message:t2注文が失敗しました。APIError(code=-2010): Account has insufficient balance for requested action.
+[INFO]	asctime:2019-08-28 19:26:08,557	module:make_orders	message:[DONE]id:28 profit:-0.00001465
+[INFO]	asctime:2019-08-28 19:26:11,401	module:make_orders	message:[DONE]id:29 profit:0.00039841
+[ERROR]	asctime:2019-08-28 19:26:13,461	module:make_orders	message:t2-AEETH/BUY 注文が失敗しました:APIError(code=-2010): Account has insufficient balance for requested action.
+[INFO]	asctime:2019-08-28 19:26:17,076	module:make_orders	message:[DONE]id:30 profit:0.00002555
+[INFO]	asctime:2019-08-28 19:26:19,702	module:make_orders	message:[DONE]id:31 profit:0.00025299
+[INFO]	asctime:2019-08-28 19:26:22,073	module:make_orders	message:[DONE]id:32 profit:0.00041444
+[ERROR]	asctime:2019-08-28 19:26:24,651	module:make_orders	message:t2-APPCETH/BUY 注文が失敗しました:APIError(code=-2010): Account has insufficient balance for requested action.
+[INFO]	asctime:2019-08-28 19:26:27,703	module:make_orders	message:[DONE]id:33 profit:0.00020064
+[INFO]	asctime:2019-08-28 19:26:31,587	module:make_orders	message:[DONE]id:34 profit:0.00007341
+[ERROR]	asctime:2019-08-28 19:26:33,960	module:make_orders	message:t2-ARNETH/BUY 注文が失敗しました:APIError(code=-2010): Account has insufficient balance for requested action.
