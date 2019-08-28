@@ -19,7 +19,7 @@ from django.conf.urls import include
 
 app_name = 'api'
 urlpatterns = [
-    path('core/', include('core.urls')),
-    path('api/', include('api.urls')),
-    path('admin/', admin.site.urls),
+    path('binance/core/', include('core.urls')),
+    path('binance/api/', include('api.urls')),
+    path('binance/admin/', admin.site.urls),
 ]
