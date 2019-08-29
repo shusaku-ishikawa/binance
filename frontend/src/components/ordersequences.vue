@@ -168,6 +168,7 @@ export default {
             msg += 'この取引により、' + data.profit + '利益がでる。'
             alert(msg)
           } else {
+            console.log(data);
             alert(data.message)
           }
         }
