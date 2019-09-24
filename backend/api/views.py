@@ -7,7 +7,7 @@ from rest_framework.authtoken.views import ObtainAuthToken
 from rest_framework.authtoken.models import Token
 from rest_framework.response import Response
 from rest_framework.views import APIView
-from .modules.helpers import _get_order_patterns, _get_expected_scenario, _execute_scenario
+
 from binance.client import Client
 from rest_framework import status
 from django.shortcuts import get_object_or_404
@@ -18,7 +18,7 @@ import sys
 import math
 import logging
 
-PAGE_SIZE = 30
+PAGE_SIZE = 20
 '''
     トークン取得処理
 '''
@@ -61,14 +61,14 @@ class OrderSequenceViewSet(viewsets.ModelViewSet):
 
     # 想定のシナリオを返す
     def retrieve(self, request, pk=None):
-        client = Client(request.user.api_key, request.user.api_secret_key)
         obj = get_object_or_404(OrderSequence, id = pk)
-        try:
-            scenario = _get_expected_scenario(client, obj)
-        except Exception as e:
-            return Response(status=200, data={'error': str(e)})
+        scenario = Scenario(obj, request.user)
+        scenario.estimate()
+        if not scenario.is_valid:
+            return Response(status=200, data={'error': scenario.error_message})
         else:
-            return Response(status=200, data = scenario)
+            data = ScenarioSerializer(scenario, many= False).data
+            return Response(status=200, data = data)
          
 class OrderSequenceResultViewSet(viewsets.ModelViewSet):
     permission_classes = (IsAuthenticated,)
@@ -90,25 +90,17 @@ class OrderSequenceResultViewSet(viewsets.ModelViewSet):
     
     def create(self, request):
         logger = logging.getLogger('online')
-        client = Client(request.user.api_key, request.user.api_secret_key)
         orderseq_id = request.data.get('orderseq_id')
         obj = get_object_or_404(OrderSequence, id = orderseq_id)
-        try:
-            scenario = _get_expected_scenario(client, obj)
-        except Exception as e:
-            return Response(status=200, data={'error': str(e)})
-        else:
-            if not scenario.get('is_valid'):
-                return Response(status=200, data={ 'error': scenario.get('message') })
-            else:
-                try:
-                    result = _execute_scenario(request.user, client, scenario, obj)
-                except Exception as e:
-                    logger.error(str(e.args))
-                    return Response(status=200, data={ 'error': str(e) })
-                else:
-                    logger.info('[DONE] user:{user}, osrId:{osr_id}, profit:{profit}'.format(user = request.user, osr_id = result.id, profit = result.profit))
-                    return Response(status=200, data={ 'success': True, 'profit': result.profit })
+        
+        scenario = Scenario(obj, request.user)
+        scenario.estimate()
+        if not scenario.is_valid:
+            return Response(status=200, data={'error': scenario.error_message})
+        scenario.execute()
+        if not scenario.is_valid:
+            return Response(status=200, data={ 'error': scenario.error_message })
+        return Response(status=200, data={ 'success': True })
 
 
 class OrderViewSet(viewsets.ModelViewSet):

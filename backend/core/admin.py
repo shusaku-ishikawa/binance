@@ -47,7 +47,7 @@ class OrderSequenceAdmin(admin.ModelAdmin):
     list_display = ['t1', 't2', 't3']
 
 class OrderAdmin(admin.ModelAdmin):
-    list_display = ['symbol', 'order_id', 'quantity', 'quote_quantity', 'expected_rate', 'actual_rate', 'time']
+    list_display = ['symbol', 'order_id', 'quantity', 'quote_quantity', 'price', 'time', 'status']
 
 
 class OrderSequenceResultAdmin(admin.ModelAdmin):

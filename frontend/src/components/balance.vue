@@ -1,25 +1,37 @@
 <template>
-  <div align="center" class="wrapper">
-    <div v-show="loading" class="loader">Now loading...</div>
-    <table
-      v-show='!loading'
+  <v-layout>
+    <v-flex
+      xs12
+      md12
     >
-      <thead>
-        <tr>
-          <th v-for="(header, index) in headers" :key="index">{{ header.text }}</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr v-for="(asset, index) in data" :key="index">
-          <td align="center">{{ asset.asset }}</td>
-          <td align="center">{{ asset.free }}</td>
-          <td align="center">{{ asset.locked }}</td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
+      <div v-show="loading" class="loader">Now loading...</div>
+      <div
+        class="table-wrapper"
+        v-show='!loading'  
+      >
+        <table>
+          <thead>
+            <tr>
+              <th v-for="(header, index) in headers" :key="index">{{ header.text }}</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr v-for="(asset, index) in data" :key="index">
+              <td align="center">{{ asset.asset }}</td>
+              <td align="center">{{ asset.free }}</td>
+              <td align="center">{{ asset.locked }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </v-flex>
+  </v-layout>
 </template>
 <style scoped>
+  div.table-wrapper {
+    width: 100%;
+    overflow: scroll
+  }
   table {
     font-size: 12px;
     color: white;
@@ -35,9 +47,6 @@
   }
   tbody tr:hover {
     background-color: #555555
-  }
-  div.wrapper {
-    align-items: center
   }
 </style>
 <script>

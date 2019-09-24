@@ -191,3 +191,10 @@ REST_FRAMEWORK = {
 
 STATIC_URL = '/static_binance/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
+
+# JOBs
+CRONJOBS = [
+    ('* * * * *', 'django.core.management.call_command', ['check_order_status']),
+    ('* * * * *', 'django.core.management.call_command', ['make_scenario']),
+]
+CRONTAB_LOCK_JOBS = False

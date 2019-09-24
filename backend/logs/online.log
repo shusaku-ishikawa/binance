@@ -10,3 +10,92 @@
 [INFO]	asctime:2019-08-28 18:47:32,085	module:views	message:[DONE] user:ishikawasyuusaku@gmail.com, osrId:25, profit:0.00000309
 [INFO]	asctime:2019-08-28 18:47:36,862	module:views	message:[DONE] user:ishikawasyuusaku@gmail.com, osrId:26, profit:0.00088308
 [INFO]	asctime:2019-08-28 18:50:55,511	module:views	message:[DONE] user:ishikawasyuusaku@gmail.com, osrId:27, profit:0.00038305
+[ERROR]	asctime:2019-08-31 22:36:07,656	module:views	message:('quantity',)
+[INFO]	asctime:2019-08-31 22:36:47,779	module:views	message:[DONE] user:ishikawasyuusaku@gmail.com, osrId:35, profit:0.00004004
+[ERROR]	asctime:2019-08-31 23:08:45,942	module:views	message:('t2-ADXETH/BUY 注文が失敗しました:APIError(code=-1013): Invalid quantity.',)
+[ERROR]	asctime:2019-08-31 23:09:31,400	module:views	message:('t2-ADAETH/BUY 注文が失敗しました:APIError(code=-1013): Invalid quantity.',)
+[ERROR]	asctime:2019-08-31 23:10:06,732	module:views	message:('t2-ADAETH/BUY 注文が失敗しました:APIError(code=-1013): Invalid quantity.',)
+[ERROR]	asctime:2019-08-31 23:11:09,592	module:views	message:('t2-ADAETH/BUY 注文が失敗しました:APIError(code=-1013): Filter failure: MIN_NOTIONAL',)
+[ERROR]	asctime:2019-08-31 23:15:29,369	module:views	message:('t2-ADAETH/BUY 注文が失敗しました:APIError(code=-1013): Filter failure: MIN_NOTIONAL',)
+[ERROR]	asctime:2019-08-31 23:19:11,686	module:views	message:('t2-ADXETH/BUY 注文が失敗しました:APIError(code=-1013): Filter failure: MIN_NOTIONAL',)
+[ERROR]	asctime:2019-08-31 23:19:26,361	module:views	message:('t2-AEETH/BUY 注文が失敗しました:APIError(code=-1013): Filter failure: MIN_NOTIONAL',)
+[ERROR]	asctime:2019-08-31 23:26:21,375	module:views	message:('t2-ADAETH/BUY 注文が失敗しました:APIError(code=-1013): Filter failure: MIN_NOTIONAL',)
+[INFO]	asctime:2019-08-31 23:35:10,798	module:views	message:[DONE] user:ishikawasyuusaku@gmail.com, osrId:36, profit:-0.00000736
+[INFO]	asctime:2019-08-31 23:35:58,884	module:views	message:[DONE] user:ishikawasyuusaku@gmail.com, osrId:37, profit:-0.00000767
+[INFO]	asctime:2019-08-31 23:36:03,523	module:views	message:[DONE] user:ishikawasyuusaku@gmail.com, osrId:38, profit:-0.00001278
+[INFO]	asctime:2019-08-31 23:36:11,643	module:views	message:[DONE] user:ishikawasyuusaku@gmail.com, osrId:39, profit:-0.00000864
+[INFO]	asctime:2019-08-31 23:36:21,555	module:views	message:[DONE] user:ishikawasyuusaku@gmail.com, osrId:40, profit:-0.00000535
+[INFO]	asctime:2019-08-31 23:36:25,872	module:views	message:[DONE] user:ishikawasyuusaku@gmail.com, osrId:41, profit:-0.00000725
+[ERROR]	asctime:2019-09-01 15:24:17,492	module:views	message:("float() argument must be a string or a number, not 'NoneType'",)
+[ERROR]	asctime:2019-09-01 15:29:07,185	module:views	message:(<Response [400]>,)
+[ERROR]	asctime:2019-09-01 15:31:05,905	module:views	message:('t3-AIONBTC/SELL 注文が失敗しました:APIError(code=-2010): Account has insufficient balance for requested action.',)
+[INFO]	asctime:2019-09-01 15:32:41,489	module:views	message:[DONE] user:ishikawasyuusaku@gmail.com, osrId:42, profit:-0.00001044
+[INFO]	asctime:2019-09-01 15:32:49,727	module:views	message:[DONE] user:ishikawasyuusaku@gmail.com, osrId:43, profit:-0.00001316
+[INFO]	asctime:2019-09-01 15:32:55,590	module:views	message:[DONE] user:ishikawasyuusaku@gmail.com, osrId:44, profit:-0.00000451
+[INFO]	asctime:2019-09-01 15:35:03,039	module:views	message:[DONE] user:ishikawasyuusaku@gmail.com, osrId:45, profit:-0.73741974
+[INFO]	asctime:2019-09-01 15:35:23,474	module:views	message:[DONE] user:ishikawasyuusaku@gmail.com, osrId:46, profit:-0.90671210
+[ERROR]	asctime:2019-09-01 15:35:34,683	module:views	message:('t3-CNDBTC/SELL 注文が失敗しました:APIError(code=-2010): Account has insufficient balance for requested action.',)
+[ERROR]	asctime:2019-09-01 15:35:43,034	module:views	message:('t3-BLZBTC/SELL 注文が失敗しました:APIError(code=-2010): Account has insufficient balance for requested action.',)
+[INFO]	asctime:2019-09-01 15:49:13,285	module:views	message:[DONE] user:ishikawasyuusaku@gmail.com, osrId:47, profit:-1.50306499
+[INFO]	asctime:2019-09-01 15:49:26,149	module:views	message:[DONE] user:ishikawasyuusaku@gmail.com, osrId:48, profit:-1.49494580
+[INFO]	asctime:2019-09-01 15:49:33,475	module:views	message:[DONE] user:ishikawasyuusaku@gmail.com, osrId:49, profit:-1.22193805
+[INFO]	asctime:2019-09-01 15:50:01,793	module:views	message:[DONE] user:ishikawasyuusaku@gmail.com, osrId:50, profit:-1.17754543
+[INFO]	asctime:2019-09-01 15:50:07,212	module:views	message:[DONE] user:ishikawasyuusaku@gmail.com, osrId:51, profit:-1.23296429
+[INFO]	asctime:2019-09-01 15:51:10,064	module:views	message:[DONE] user:ishikawasyuusaku@gmail.com, osrId:52, profit:-1.66737705
+[INFO]	asctime:2019-09-01 15:55:34,678	module:views	message:[DONE] user:ishikawasyuusaku@gmail.com, osrId:53, profit:-1.63643193
+[INFO]	asctime:2019-09-01 16:04:23,507	module:views	message:[DONE] user:ishikawasyuusaku@gmail.com, osrId:54, profit:-2.00215351
+[INFO]	asctime:2019-09-01 16:05:45,278	module:views	message:[DONE] user:ishikawasyuusaku@gmail.com, osrId:55, profit:-1.97155917
+[INFO]	asctime:2019-09-01 16:26:49,560	module:views	message:[DONE] user:ishikawasyuusaku@gmail.com, osrId:56, profit:-2.11693958
+[INFO]	asctime:2019-09-01 16:32:52,732	module:views	message:[DONE] user:ishikawasyuusaku@gmail.com, osrId:57, profit:-1.06569951
+[INFO]	asctime:2019-09-01 16:37:15,590	module:views	message:[DONE] user:ishikawasyuusaku@gmail.com, osrId:58, profit:-0.42160658
+[INFO]	asctime:2019-09-01 16:51:15,577	module:views	message:[DONE] user:ishikawasyuusaku@gmail.com, osrId:59, profit:-0.93895021
+[INFO]	asctime:2019-09-01 17:08:02,990	module:views	message:[DONE] user:ishikawasyuusaku@gmail.com, osrId:60, profit:-0.89466947
+[INFO]	asctime:2019-09-01 17:08:17,912	module:views	message:[DONE] user:ishikawasyuusaku@gmail.com, osrId:61, profit:-1.96629385
+[INFO]	asctime:2019-09-01 17:12:18,081	module:views	message:[DONE] user:ishikawasyuusaku@gmail.com, osrId:62, profit:-1.08464107
+[INFO]	asctime:2019-09-01 17:13:16,395	module:views	message:[DONE] user:ishikawasyuusaku@gmail.com, osrId:63, profit:-0.91746414
+[INFO]	asctime:2019-09-01 17:41:11,400	module:views	message:[DONE] user:ishikawasyuusaku@gmail.com, osrId:64, profit:-3.79227061
+[INFO]	asctime:2019-09-01 17:41:19,315	module:views	message:[DONE] user:ishikawasyuusaku@gmail.com, osrId:65, profit:-1.79755657
+[INFO]	asctime:2019-09-01 17:41:27,367	module:views	message:[DONE] user:ishikawasyuusaku@gmail.com, osrId:66, profit:-0.73507879
+[ERROR]	asctime:2019-09-01 19:44:32,153	module:views	message:("float() argument must be a string or a number, not 'NoneType'",)
+[ERROR]	asctime:2019-09-01 19:45:21,008	module:views	message:("float() argument must be a string or a number, not 'NoneType'",)
+[INFO]	asctime:2019-09-01 19:50:24,608	module:views	message:[DONE] user:ishikawasyuusaku@gmail.com, osrId:67, profit:-1.22066664
+[ERROR]	asctime:2019-09-01 20:04:33,770	module:views	message:("float() argument must be a string or a number, not 'NoneType'",)
+[INFO]	asctime:2019-09-01 20:05:27,405	module:views	message:[DONE] user:ishikawasyuusaku@gmail.com, osrId:68, profit:-2.43166600
+[INFO]	asctime:2019-09-01 20:05:38,797	module:views	message:[DONE] user:ishikawasyuusaku@gmail.com, osrId:69, profit:-2.53855900
+[ERROR]	asctime:2019-09-01 20:09:29,363	module:views	message:('t3-ALGOBNB/SELL 注文が失敗しました:APIError(code=-1111): Precision is over the maximum defined for this asset.',)
+[INFO]	asctime:2019-09-01 20:15:14,877	module:views	message:[DONE] user:ishikawasyuusaku@gmail.com, osrId:70, profit:-2.43166600
+[ERROR]	asctime:2019-09-01 20:15:22,791	module:views	message:('t3-BRDBNB/SELL 注文が失敗しました:APIError(code=-1111): Precision is over the maximum defined for this asset.',)
+[INFO]	asctime:2019-09-01 20:18:16,284	module:views	message:[DONE] user:ishikawasyuusaku@gmail.com, osrId:71, profit:-2.34475300
+[ERROR]	asctime:2019-09-01 20:18:25,075	module:views	message:('t3-BRDBNB/SELL 注文が失敗しました:APIError(code=-1111): Precision is over the maximum defined for this asset.',)
+[INFO]	asctime:2019-09-01 20:21:19,351	module:views	message:[DONE] user:ishikawasyuusaku@gmail.com, osrId:72, profit:-2.384713
+[INFO]	asctime:2019-09-01 20:21:24,868	module:views	message:[DONE] user:ishikawasyuusaku@gmail.com, osrId:73, profit:-1.956142
+[INFO]	asctime:2019-09-01 20:21:40,791	module:views	message:[DONE] user:ishikawasyuusaku@gmail.com, osrId:74, profit:-1.9747234
+[INFO]	asctime:2019-09-01 20:21:49,732	module:views	message:[DONE] user:ishikawasyuusaku@gmail.com, osrId:75, profit:-3.8337625
+[INFO]	asctime:2019-09-01 20:22:00,894	module:views	message:[DONE] user:ishikawasyuusaku@gmail.com, osrId:76, profit:-1.527571
+[INFO]	asctime:2019-09-21 19:46:06,299	module:views	message:[DONE] user:ishikawasyuusaku@gmail.com, osrId:1, profit:-1.0513477
+[INFO]	asctime:2019-09-21 20:00:09,322	module:views	message:[DONE] user:ishikawasyuusaku@gmail.com, osrId:2, profit:-1.24885
+[INFO]	asctime:2019-09-21 20:10:50,498	module:views	message:[DONE] user:ishikawasyuusaku@gmail.com, osrId:3, profit:-1.1640349
+[INFO]	asctime:2019-09-21 21:24:44,044	module:views	message:[DONE] user:ishikawasyuusaku@gmail.com, osrId:4, profit:-1.6021963
+[ERROR]	asctime:2019-09-22 09:25:56,009	module:views	message:("name 'tq' is not defined",)
+[ERROR]	asctime:2019-09-22 13:20:04,102	module:views	message:("name 'Client' is not defined",)
+[ERROR]	asctime:2019-09-22 13:29:56,919	module:views	message:('__enter__',)
+[ERROR]	asctime:2019-09-22 13:30:10,888	module:views	message:('__enter__',)
+[ERROR]	asctime:2019-09-22 13:30:22,641	module:views	message:('__enter__',)
+[ERROR]	asctime:2019-09-22 13:31:39,328	module:views	message:("local variable 'status' referenced before assignment",)
+[ERROR]	asctime:2019-09-22 13:34:11,162	module:views	message:("name 'status' is not defined",)
+[ERROR]	asctime:2019-09-23 22:10:20,610	module:views	message:('Value out of range,acceptable: -719162 ~ 253402271999.999 (1/1/1 00:00:00 ~ 9999/12/31 23:59:59)', 'out_of_rnage', None)
+[ERROR]	asctime:2019-09-23 22:14:28,494	module:views	message:('Value out of range,acceptable: -719162 ~ 253402271999.999 (1/1/1 00:00:00 ~ 9999/12/31 23:59:59)', 'out_of_rnage', None)
+[ERROR]	asctime:2019-09-23 22:15:23,207	module:views	message:('NOT NULL constraint failed: core_order.quote_quantity',)
+[ERROR]	asctime:2019-09-23 22:16:40,629	module:views	message:('NOT NULL constraint failed: core_order.order_id',)
+[ERROR]	asctime:2019-09-23 22:17:47,414	module:views	message:('NOT NULL constraint failed: core_ordersequenceresult.profit',)
+[INFO]	asctime:2019-09-23 22:18:36,847	module:views	message:[DONE] user:ishikawasyuusaku@gmail.com, osrId:5, profit:None
+[INFO]	asctime:2019-09-23 22:37:02,929	module:views	message:[DONE] user:ishikawasyuusaku@gmail.com, osrId:6, profit:None
+[INFO]	asctime:2019-09-23 23:04:29,242	module:views	message:[DONE] user:ishikawasyuusaku@gmail.com, osrId:7, profit:None
+[INFO]	asctime:2019-09-23 23:12:25,822	module:views	message:[DONE] user:ishikawasyuusaku@gmail.com, osrId:8, profit:None
+[INFO]	asctime:2019-09-24 00:24:43,323	module:views	message:[DONE] user:ishikawasyuusaku@gmail.com, osrId:9, profit:None
+[INFO]	asctime:2019-09-24 00:31:35,911	module:views	message:[DONE] user:ishikawasyuusaku@gmail.com, osrId:10, profit:None
+[INFO]	asctime:2019-09-24 00:44:12,315	module:views	message:[DONE] user:ishikawasyuusaku@gmail.com, osrId:11, profit:None
+[INFO]	asctime:2019-09-24 00:49:17,179	module:views	message:[DONE] user:ishikawasyuusaku@gmail.com, osrId:12, profit:None
+[INFO]	asctime:2019-09-24 00:51:08,939	module:views	message:[DONE] user:ishikawasyuusaku@gmail.com, osrId:13, profit:None
+[INFO]	asctime:2019-09-24 13:50:02,556	module:views	message:[DONE] user:ishikawasyuusaku@gmail.com, osrId:14, profit:None
+[INFO]	asctime:2019-09-24 14:03:23,175	module:views	message:[DONE] user:ishikawasyuusaku@gmail.com, osrId:15, profit:1.1180317499999773e-05

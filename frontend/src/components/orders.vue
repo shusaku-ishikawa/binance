@@ -1,42 +1,62 @@
 <template>
-  <div align="center" class="wrapper">
-    <div v-show="loading" class="loader">Now loading...</div>
-    <table
-      v-show='!loading'
+  <v-layout>
+    <v-flex
+      md12
+      xs12
     >
-      <thead>
-        <tr>
-          <th v-for="(header, index) in headers" :key="index">{{ header.text }}</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr v-for="(o, index) in data" :key="index">
-          <td align="center">{{ o.order_id }}</td>
-          <td align="center">{{ o.time }}</td>
-          <td align="center">{{ o.str_symbol }}</td>
-          <td align="center">{{ o.side }}</td>
-          <td align="center">{{ o.quantity }}</td>
-          <td align="center">{{ o.quote_quantity }}</td>
-          <td align="center">{{ o.expected_rate }}</td>
-          <td align="center">{{ o.actual_rate }}</td>
-        </tr>
-      </tbody>
-    </table>
-    <v-pagination
-      v-model="page"
-      v-show="!loading"
-      :circle="circle"
-      :disabled="disabled"
-      :length="length"
-      :next-icon="nextIcon"
-      :prev-icon="prevIcon"
-      :page="page"
-      :total-visible="totalVisible"
-    ></v-pagination>
-  </div>
+      <div
+        v-show="loading" class="loader">Now loading...</div>
+      <div
+        class="table-wrapper"
+        v-show='!loading && hasData'
+      >
+        <table>
+          <thead>
+            <tr>
+              <th v-for="(header, index) in headers" :key="index">{{ header.text }}</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr v-for="(o, index) in data" :key="index">
+              <td align="center">{{ o.order_id }}</td>
+              <td align="center">{{ o.time }}</td>
+              <td align="center">{{ o.str_symbol }}</td>
+              <td align="center">{{ o.side }}</td>
+              <td align="center">{{ o.quantity }}</td>
+              <td align="center">{{ o.quote_quantity }}</td>
+              <td align="center">{{ o.price }}</td>
+              <td align="center">{{ o.status }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p
+        v-show="!loading && !hasData"
+        class="no_data"
+      >
+        レコードが存在しません
+      </p>
+      <v-pagination
+        v-model="pagination.page"
+        v-show="!loading && hasData"
+        :circle="pagination.circle"
+        :disabled="pagination.disabled"
+        :length="pagination.length"
+        :next-icon="pagination.nextIcon"
+        :prev-icon="pagination.prevIcon"
+        :page="pagination.page"
+        :total-visible="pagination.totalVisible"
+      ></v-pagination>
+    </v-flex>
+  </v-layout>
 </template>
 <style scoped>
+  div.table-wrapper {
+    width: 100%;
+    overflow: scroll;
+  }
   table {
+    overflow: scroll;
     font-size: 12px;
     color: white;
     width: 100%;
@@ -52,11 +72,11 @@
   tbody tr:hover {
     background-color: #555555
   }
-  div.wrapper {
-    align-items: center
+  p.no_data {
+    color: red
   }
 </style>
-
+  
 <script>
 export default {
   data () {
@@ -69,19 +89,26 @@ export default {
         { text: 'side' },
         { text: 'base数量' },
         { text: 'quote数量' },
-        { text: '想定価格' },
-        { text: '実価格' }
+        { text: '価格' },
+        { text: 'ステータス' }
       ],
       data: [],
-      circle: false,
-      disabled: false,
-      length: 10,
-      nextIcon: 'navigate_next',
-      nextIcons: ['navigate_next', 'arrow_forward', 'arrow_right', 'chevron_right'],
-      prevIcon: 'navigate_before',
-      prevIcons: ['navigate_before', 'arrow_back', 'arrow_left', 'chevron_left'],
-      page: 1,
-      totalVisible: 10
+      pagination: {
+        circle: false,
+        disabled: false,
+        length: 10,
+        nextIcon: 'navigate_next',
+        nextIcons: ['navigate_next', 'arrow_forward', 'arrow_right', 'chevron_right'],
+        prevIcon: 'navigate_before',
+        prevIcons: ['navigate_before', 'arrow_back', 'arrow_left', 'chevron_left'],
+        page: 1,
+        totalVisible: 10
+      }
+    }
+  },
+  computed: {
+    hasData: function () {
+      return this.data.length > 0
     }
   },
   watch: {
@@ -91,7 +118,7 @@ export default {
     }
   },
   async created () {
-    this.fetchData(this.page)
+    this.fetchData(this.pagination.page)
   },
   methods: {
     async fetchData (page) {
@@ -103,7 +130,7 @@ export default {
           { url: pagedUrl },
           { root: true }
         )
-        this.length = result.data.page_count
+        this.pagination.length = result.data.page_count
         this.data = result.data.result
       } catch (err) {
         this.flash(err, 'error', {
