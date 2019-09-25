@@ -138,19 +138,22 @@ export default {
     }
   },
   async mounted () {
+    this.loading = true
     let vueinstance = this
     await vueinstance.fetchData(vueinstance.pagination.page)
     vueinstance.intervalId = setInterval(function () {
       vueinstance.fetchData(vueinstance.pagination.page)
     }, 3000)
+    this.loading = false
   },
   beforeDestroy () {
     clearInterval(this.intervalId)
   },
   watch: {
-    // on page change
-    page: function (page) {
-      this.fetchData(page)
+    page: async function (page) {
+      this.loading = true
+      await this.fetchData(page)
+      this.loading = false
     }
   },
   computed: {
@@ -160,7 +163,6 @@ export default {
   },
   methods: {
     async fetchData (page) {
-      //this.loading = true
       let pagedUrl = 'ordersequenceresults?page=' + page
       try {
         let result = await this.$store.dispatch(
@@ -175,7 +177,6 @@ export default {
           timeout: 1500
         })
       }
-      //this.loading = false
     }
   }
 }

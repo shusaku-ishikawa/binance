@@ -106,7 +106,10 @@ class User(AbstractBaseUser, PermissionsMixin):
         send_mail(subject, message, from_email, [self.email], **kwargs)
  
     def get_binance_client(self):
-        return Client(self.api_key, self.api_secret_key)
+        if self.api_key and self.api_secret_key:
+            return Client(self.api_key, self.api_secret_key)
+        else:
+            return None
     @property
     def username(self):
         """username属性のゲッター
@@ -417,7 +420,10 @@ class Scenario(object):
         self.client = self.user.get_binance_client()
         self.is_valid = True
         self.result = None
-
+        if not self.client:
+            self.is_valid = False
+            self.error_message = 'APIキーが登録されていません'
+        
     def get_ita_price(self, symbol, num):
         result = self.client.get_order_book(symbol = symbol.symbol)
         entry_array = result.get('asks' if symbol.side == SIDE_SELL else 'bids')
@@ -481,6 +487,8 @@ class Scenario(object):
 
 
     def estimate(self):
+        if not self.is_valid:
+            return False
         n = 1
 
         t1_price = self.get_ita_price(self.orderseq.t1, n)[0]
@@ -573,7 +581,6 @@ class Scenario(object):
         self.profit = Scenario.floating_decimals((a_acquired_ret - initial_cost) * 100 / initial_cost, 8)
     
     def execute(self):
-        
         t1_obj = Order()
         t1_obj.user = self.user
         t1_obj.symbol = self.orderseq.t1

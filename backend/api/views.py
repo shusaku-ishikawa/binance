@@ -77,7 +77,7 @@ class OrderSequenceResultViewSet(viewsets.ModelViewSet):
     serializer_class = OrderSequenceResultSerializer
    
     def list(self, request):
-        qs = OrderSequenceResult.objects.filter(user = request.user).order_by('-t3_result__time')
+        qs = OrderSequenceResult.objects.filter(user = request.user).order_by('-id')
         page_count = math.ceil(len(qs) / PAGE_SIZE)
         # pagination
         page = request.GET.get('page')

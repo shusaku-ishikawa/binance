@@ -22,9 +22,9 @@
               <td align="center">{{ o.time }}</td>
               <td align="center">{{ o.str_symbol }}</td>
               <td align="center">{{ o.side }}</td>
-              <td align="center">{{ o.quantity }}</td>
-              <td align="center">{{ o.quote_quantity }}</td>
-              <td align="center">{{ o.price }}</td>
+              <td align="center">{{ o.quantity | toFixed }}</td>
+              <td align="center">{{ o.quote_quantity | toFixed }}</td>
+              <td align="center">{{ o.price | toFixed }}</td>
               <td align="center">{{ o.status }}</td>
             </tr>
           </tbody>
@@ -84,13 +84,13 @@ export default {
       loading: false,
       headers: [
         { text: 'orderId' },
-        { text: '時間' },
-        { text: 'シンボル' },
-        { text: 'side' },
-        { text: 'base数量' },
-        { text: 'quote数量' },
-        { text: '価格' },
-        { text: 'ステータス' }
+        { text: 'Time' },
+        { text: 'Symbol' },
+        { text: 'Side' },
+        { text: 'baseQty' },
+        { text: 'quoteQty' },
+        { text: 'Price' },
+        { text: 'Status' }
       ],
       data: [],
       pagination: {
@@ -138,6 +138,15 @@ export default {
         })
       }
       this.loading = false
+    }
+  },
+  filters: {
+    toFixed: function (val) {
+      const precistion = 1000000
+      if (isNaN(val)) {
+        return 0
+      }
+      return parseInt(val * precistion) / precistion
     }
   }
 }

@@ -10,7 +10,7 @@ class Command(BaseCommand):
     # コマンドが実行された際に呼ばれるメソッド
     def handle(self, *args, **options):
         logger = logging.getLogger('batch')
-        logger.info('開始')
+        logger.info('START')
         time_started = time.time()
         n = 0
         while True:
@@ -45,3 +45,5 @@ class Command(BaseCommand):
                         continue
                     result = scenario.result
                     logger.info('[DONE]id:{osr_id} profit:{profit}'.format(osr_id = result.id, profit = result.profit))
+
+            logger.info('END')

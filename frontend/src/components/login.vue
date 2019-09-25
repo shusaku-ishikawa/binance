@@ -34,6 +34,11 @@ export default {
       password: ''
     }
   },
+  mounted () {
+    this.$store.dispatch(
+      'auth/destroy'
+    )
+  },
   methods: {
     async login () {
       try {
@@ -47,8 +52,15 @@ export default {
         // login successfull
         this.$router.push('/info')
       } catch (err) {
-        this.flash(err, 'error', {
-          timeout: 1500
+        const { status, data } = err.response
+        let message
+        if (status === 400) {
+          message = 'ログインに失敗しました'
+        } else {
+          message = '予期しないエラーが起きました' + data
+        }
+        this.flash(message, 'error', {
+          timeout: 3000
         })
       }
     }

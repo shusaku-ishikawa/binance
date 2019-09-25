@@ -10,6 +10,9 @@ class Command(BaseCommand):
     help = 'アカウント情報を確認する'
     # コマンドが実行された際に呼ばれるメソッド
     def handle(self, *args, **options):
+        logger = logging.getLogger('batch')
+        logger.info('START')
+        
         time_started = time.time()
         n = 0
         while True:
@@ -64,3 +67,5 @@ class Command(BaseCommand):
                     o3.update_status()
                 elif o3.status == ORDER_STATUS_FILLED:
                     pass
+
+        logger.info('˜END')

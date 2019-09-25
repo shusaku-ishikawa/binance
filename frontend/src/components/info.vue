@@ -3,7 +3,8 @@
     <v-flex
       md6
       offset-md3
-      xs12
+      xs10
+      offset-xs1
     >
     <v-form
       ref="form"
