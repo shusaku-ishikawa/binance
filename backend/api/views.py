@@ -28,7 +28,7 @@ class CustomObtainAuthToken(ObtainAuthToken):
         response = super(CustomObtainAuthToken, self).post(request, *args, **kwargs)
         token = Token.objects.get(key=response.data['token'])
         user = User.objects.get(id = token.user_id)
-        return Response({'token': token.key, 'id': user.id, 'api_key': user.api_key, 'api_secret_key': user.api_secret_key, 'currency': user.currency })
+        return Response({'token': token.key, 'id': user.id, 'api_key': user.api_key, 'api_secret_key': user.api_secret_key })
 
 class UserViewSet(viewsets.ModelViewSet):
     permission_classes = (IsAuthenticated,)

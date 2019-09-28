@@ -150,7 +150,7 @@ export default {
     clearInterval(this.intervalId)
   },
   watch: {
-    page: async function (page) {
+    'pagination.page': async function (page) {
       this.loading = true
       await this.fetchData(page)
       this.loading = false

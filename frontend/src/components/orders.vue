@@ -113,8 +113,10 @@ export default {
   },
   watch: {
     // on page change
-    page: function (page) {
-      this.fetchData(page)
+    'pagination.page': async function (page) {
+      this.loading = true
+      await this.fetchData(page)
+      this.loading = false
     }
   },
   async created () {
