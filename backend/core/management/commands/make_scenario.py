@@ -12,23 +12,24 @@ class Command(BaseCommand):
         logger = logging.getLogger('batch')
         logger.info('START')
         time_started = time.time()
-        n = 0
         while True:
             time.sleep(3)
             n = n + 1
             time_elapsed = time.time() - time_started
-            if time_elapsed > 55.0:
+            if time_elapsed > 60 * 50:# 50分間継続する
                 break
-        
+
             for user in User.objects.filter(is_active = True, api_key__isnull = False, api_secret_key__isnull = False):
                 if not user.auto_trading:
                     continue
-                for os in OrderSequence.objects.filter(t1__from_currency = user.currency):
-                    time.sleep(1)
+                if user.active_scenario_count >= user.max_active_scenario:
+                    logger.info('Max active scenario exceeded {}'.format(user.email))
+                    continue
+                for os in OrderSequence.objects.filter(t1__from_currency__in = user.base_currencies):
+                    logger.info('try {}..'.format(os.transition))
+                    time.sleep(2)
                     # ユーザが自動取引をONにしている場合のみ処理
                     user.refresh_from_db()
-                    if user.active_scenario_count >= user.max_active_scenario:
-                        continue
                     
                     scenario = Scenario(os, user)
                     scenario.estimate()
@@ -36,9 +37,9 @@ class Command(BaseCommand):
                         logger.error(scenario.error_message)
                         continue
                     
-                    if scenario.profit < user.target_profit_rate:
+                    if scenario.profit_rate < user.target_profit_rate:
                         continue
-                    
+                    logger.info('Found profitable scenario:{transition}. profit rate:{rate}%'.format(transition = os.transition, rate = scenario.profit_rate))
                     scenario.execute()
                     if not scenario.is_valid:
                         logger.error(scenario.error_message)
@@ -46,4 +47,4 @@ class Command(BaseCommand):
                     result = scenario.result
                     logger.info('[DONE]id:{osr_id} profit:{profit}'.format(osr_id = result.id, profit = result.profit))
 
-            logger.info('END')
+        logger.info('END')

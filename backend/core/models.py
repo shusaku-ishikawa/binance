@@ -49,9 +49,36 @@ class User(AbstractBaseUser, PermissionsMixin):
     email = models.EmailField(_('メールアドレス'), unique=True)
     api_key = models.CharField(_('API KEY'), max_length=255, blank=True, null = True)
     api_secret_key = models.CharField(_('API SECRET KEY'), max_length=255, blank=True, null = True)
-    currency = models.CharField(
-        verbose_name = 'ターゲット通貨',
-        max_length = 50,
+    
+    do_btc = models.BooleanField(
+        verbose_name = 'BTC',
+        default = True
+    )
+    btc_unit_amount = models.FloatField(
+        default = 0.001
+    )
+    do_eth = models.BooleanField(
+        verbose_name = 'ETH',
+        default = True
+    )
+    eth_unit_amount = models.FloatField(
+        default = 0.001
+    )
+    
+    do_usd = models.BooleanField(
+        verbose_name = 'USD',
+        default = True
+    )
+    usd_unit_amount = models.FloatField(
+        default = 0.001
+    )
+    
+    do_bnb = models.BooleanField(
+        verbose_name = 'BNB',
+        default = True
+    )
+    bnb_unit_amount = models.FloatField(
+        default = 0.001
     )
     
     max_quantity_rate = models.FloatField(
@@ -64,10 +91,6 @@ class User(AbstractBaseUser, PermissionsMixin):
         default = 0.5
     )
 
-    transaction_fee_rate = models.FloatField(
-        verbose_name = '取引手数料',
-        default = 0.075
-    )
     auto_trading = models.BooleanField(
         verbose_name = '自動取引',
         default = False
@@ -76,10 +99,11 @@ class User(AbstractBaseUser, PermissionsMixin):
         verbose_name = '最大シナリオ数',
         default = 10
     )
-    scenario_unit = models.FloatField(
-        verbose_name = 'unit',
-        default = 0.2
+    commission_rate = models.FloatField(
+        verbose_name = '手数料',
+        default = 0.075
     )
+
     is_staff = models.BooleanField(
         _('管理者'),
         default=False,
@@ -110,6 +134,24 @@ class User(AbstractBaseUser, PermissionsMixin):
             return Client(self.api_key, self.api_secret_key)
         else:
             return None
+    
+    @property
+    def balances(self):
+        return [asset for asset in self.get_binance_client().get_account().get('balances') if float(asset.get("free")) > 0 or float(asset.get("locked")) > 0]
+
+    @property
+    def base_currencies(self):
+        ret = []
+        if self.do_btc:
+            ret.append('BTC')
+        if self.do_eth:
+            ret.append('ETH')
+        if self.do_usd:
+            ret.append('USD')
+        if self.do_bnb:
+            ret.append('BNB')
+        return ret
+
     @property
     def username(self):
         """username属性のゲッター
@@ -120,8 +162,7 @@ class User(AbstractBaseUser, PermissionsMixin):
         return self.email
     @property
     def active_scenario_count(self):
-        return len(OrderSequenceResult.objects.filter(user__id = self.id))
-
+        return len([osr for osr in OrderSequenceResult.objects.filter(user__id = self.id) if osr.in_progress])
 
 '''
     取引可能な通貨ペアのマスタ情報
@@ -156,13 +197,31 @@ class Symbol(models.Model):
     def is_sell(self):
         return self.side == SIDE_SELL
     def get_ticker(self):
-        result = Client().get_ticker(symbol = self.symbol)
+        result = Client(None, None).get_ticker(symbol = self.symbol)
         # 売りの場合
         if self.side == SIDE_SELL:
             price = result.get('bidPrice')
         else:
             price = result.get('askPrice')
         return float(price)
+    @staticmethod
+    def get_scenario_patterns(self, client, currency = None):
+        sql = ''
+        sql += 'select'
+        sql += '    t1.id as id,'
+        sql += '    t1.id as t1_id, '
+        sql += '    t2.id as t2_id, '
+        sql += '    t3.id as t3_id '
+        sql += 'from core_symbol as t1 '
+        sql += 'inner join core_symbol as t2 '
+        sql += '    on t1.to_currency = t2.from_currency '
+        sql += 'inner join core_symbol as t3 '
+        sql += '    on t2.to_currency = t3.from_currency '
+        sql += 'where t1.from_currency = t3.to_currency '
+        if currency:
+            sql += "and t1.from_currency = '{currency}';".format(currency = currency)
+        return Symbol.objects.raw(sql)
+
 class OrderSequence(models.Model):
     class Meta:
         verbose_name = '注文シナリオ'
@@ -272,9 +331,9 @@ class Order(models.Model):
     @property
     def amount_acquired(self):
         if self.side == SIDE_SELL:
-            return (self.quote_quantity or 0) * (1 - self.user.transaction_fee_rate / 100)
+            return (self.quote_quantity or 0) * (1 - self.user.commission_rate / 100)
         else:
-            return  self.quantity * (1 - self.user.transaction_fee_rate / 100)
+            return  self.quantity * (1 - self.user.commission_rate / 100)
 
     @property
     def currency_paid(self):
@@ -391,9 +450,8 @@ class OrderSequenceResult(models.Model):
 
     @property
     def profit(self):
-        if not self.t3_result.quote_quantity:
-            return None
         return self.t3_result.amount_acquired - self.t1_result.amount_paid
+
     @property
     def time(self):
         return self.t3_result.time
@@ -424,18 +482,18 @@ class Scenario(object):
             self.is_valid = False
             self.error_message = 'APIキーが登録されていません'
         
-    def get_ita_price(self, symbol, num):
+    def get_entry(self, symbol, num):
         result = self.client.get_order_book(symbol = symbol.symbol)
         entry_array = result.get('asks' if symbol.side == SIDE_SELL else 'bids')
         if len(entry_array) < num:
             self.is_valid = False
-            self.error_message = '板に取引がありません'
+            self.error_message = '板に{}エントリがありません'.format('買' if symbol.side == SIDE_SELL else '売')
         else:
             return [float(o) for o in entry_array[num - 1]]  
     
     def get_order_amount(self, t1_rate, t2_rate, t3_rate):
         pass
-        # t1_target_entry = self.get_ita_price(self.orderseq.t1, 2)
+        # t1_target_entry = self.get_entry(self.orderseq.t1, 2)
         # t1_rate = orderseq.t1.get_ticker()
 
         # t2_target_entry = _get_2nd_entry(client, orderseq.t2)
@@ -485,21 +543,27 @@ class Scenario(object):
             print('min notional:{mn}に対し{n}で発注しようとしています symbol:{symbol}, side:{side}, amount:{amount}, rate:{rate} '.format(mn = min_notional, n = notional, symbol = symbol_info.get('symbol'), side = side, amount = amount, rate = rate))
         return notional < min_notional
 
-
+    def get_order_unit_amount(self):
+        base_currency = self.orderseq.t1.from_currency.lower()
+        return getattr(self.user, '{}_unit_amount'.format(base_currency))
+        
     def estimate(self):
         if not self.is_valid:
             return False
         n = 1
 
-        t1_price = self.get_ita_price(self.orderseq.t1, n)[0]
-        t2_price = self.get_ita_price(self.orderseq.t2, n)[0]
-        t3_price = self.get_ita_price(self.orderseq.t3, n)[0]
-    
-        ## テスと目的のため0.001に固定
-        
+        commission_rate = self.user.commission_rate
+
+        try:
+            t1_price = self.get_entry(self.orderseq.t1, n)[0]
+            t2_price = self.get_entry(self.orderseq.t2, n)[0]
+            t3_price = self.get_entry(self.orderseq.t3, n)[0]
+        except TypeError:
+            return False
+
         # 現在の所有分を確認
         balance = float(self.client.get_asset_balance(asset = self.orderseq.t1.from_currency).get('free'))
-        unit = self.user.scenario_unit
+        unit = self.get_order_unit_amount()
 
         if unit > balance:
             self.is_valid = False
@@ -522,7 +586,7 @@ class Scenario(object):
             return None
 
         b_acquired = (t1_amount * t1_price) if self.orderseq.t1.is_sell else t1_amount
-        b_acquired = b_acquired * ((100 - self.user.transaction_fee_rate) / 100)
+        b_acquired *= ((100 - commission_rate) / 100)
         
         self.t1_info = {
             'symbol': self.orderseq.t1.symbol,
@@ -530,7 +594,7 @@ class Scenario(object):
             'rate': t1_price,
             'side': self.orderseq.t1.side,
             'currency_acquired': self.orderseq.t1.to_currency,
-            'amount_acquired': t1_amount * t1_price if self.orderseq.t1.is_sell else t1_amount,
+            'amount_acquired': b_acquired,
             'symbol_info': t1_symbol_info
         }
         
@@ -544,7 +608,7 @@ class Scenario(object):
             self.error_message = 't2の注文数量が不正です'
             return None
         c_acquired = (t2_amount * t2_price) if self.orderseq.t2.is_sell else t2_amount
-        c_acquired = c_acquired * ((100 - self.user.transaction_fee_rate) / 100)
+        c_acquired *= ((100 - commission_rate) / 100)
         
         self.t2_info = {
             'symbol': self.orderseq.t2.symbol,
@@ -552,7 +616,7 @@ class Scenario(object):
             'rate': t2_price,
             'side': self.orderseq.t2.side,
             'currency_acquired': self.orderseq.t2.to_currency,
-            'amount_acquired': t2_amount * t2_price if self.orderseq.t2.is_sell else t2_amount,
+            'amount_acquired': c_acquired,
             'symbol_info': t2_symbol_info
         }
 
@@ -566,19 +630,22 @@ class Scenario(object):
             self.error_message = 't3の注文数量が不正です'
             return None
 
-        a_acquired_ret = (c_acquired * t3_price) if self.orderseq.t3.is_sell else (c_acquired / t3_price)
-        a_acquired_ret = a_acquired_ret * ((100 - self.user.transaction_fee_rate) / 100)
+        #a_acquired_ret = (c_acquired * t3_price) if self.orderseq.t3.is_sell else (c_acquired / t3_price)
+        a_acquired = t3_amount * t3_price if self.orderseq.t3.is_sell else t3_amount
+        a_acquired *= ((100 - commission_rate) / 100)
+        
         self.t3_info = {
             'symbol': self.orderseq.t3.symbol,
             'quantity': t3_amount,
             'rate': t3_price,
             'side': self.orderseq.t3.side,
             'currency_acquired': self.orderseq.t3.to_currency,
-            'amount_acquired': t3_amount * t3_price if self.orderseq.t3.is_sell else t3_amount,
+            'amount_acquired': a_acquired,
             'symbol_info': t3_symbol_info
         }
         
-        self.profit = Scenario.floating_decimals((a_acquired_ret - initial_cost) * 100 / initial_cost, 8)
+        self.profit = Scenario.floating_decimals(a_acquired - initial_cost, 8)
+        self.profit_rate = Scenario.floating_decimals(self.profit / initial_cost * 100, 3)
     
     def execute(self):
         t1_obj = Order()

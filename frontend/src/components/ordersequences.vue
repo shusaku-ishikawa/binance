@@ -133,9 +133,9 @@ export default {
   },
   watch: {
     // on page change
-    page: function (page) {
+    'pagination.page': async function (page) {
       this.laoding = true
-      this.fetchData(page)
+      await this.fetchData(page)
       this.loading = false
     }
   },
@@ -154,7 +154,6 @@ export default {
           { url: pagedUrl },
           { root: true }
         )
-        console.log(result.data.result)
         this.pagination.length = result.data.page_count
         this.data = result.data.result
       } catch (err) {

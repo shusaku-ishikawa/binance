@@ -4,7 +4,7 @@ from core.models import *
 class UserSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = User
-        fields = ('id', 'username', 'password', 'api_key', 'api_secret_key', 'currency', 'max_quantity_rate', 'target_profit_rate', 'max_active_scenario', 'scenario_unit', 'auto_trading')
+        fields = ('id', 'username', 'password', 'api_key', 'api_secret_key', 'do_btc', 'btc_unit_amount', 'do_eth', 'eth_unit_amount', 'do_usd', 'usd_unit_amount', 'do_bnb', 'bnb_unit_amount', 'max_quantity_rate', 'target_profit_rate', 'max_active_scenario', 'auto_trading')
         write_only_fields = ('password')
         read_only_fields = ('id',)
 
@@ -61,3 +61,4 @@ class ScenarioSerializer(serializers.Serializer):
     t2_info = ScenarioDetailSerializer(many = False, required = True)
     t3_info = ScenarioDetailSerializer(many = False, required = True)
     profit = serializers.FloatField()
+    profit_rate = serializers.FloatField()

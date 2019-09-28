@@ -17,6 +17,7 @@ from time import sleep
 import sys
 import math
 import logging
+from django.db.models import Q
 
 PAGE_SIZE = 20
 '''
@@ -42,12 +43,18 @@ class OrderSequenceViewSet(viewsets.ModelViewSet):
     serializer_class = OrderSequenceSerializer
 
     def list(self, request):
-        currency = request.user.currency
-        qs = OrderSequence.objects.all()
+        base_currencies = ['BTC', 'ETH', 'USD', 'BNB']
+        qs = OrderSequence.objects.filter(t1__from_currency__in = base_currencies)
+        if not request.user.do_btc:
+            qs = qs.filter(~Q(t1__from_currency = 'BTC'))
+        if not request.user.do_eth:
+            qs = qs.filter(~Q(t1__from_currency = 'ETH'))
+        if not request.user.do_usd:
+            qs = qs.filter(~Q(t1__from_currency = 'USD'))
+        if not request.user.do_bnb:
+            qs = qs.filter(~Q(t1__from_currency = 'BNB'))
+           
         page_count = math.ceil(len(qs) / PAGE_SIZE)
-
-        if currency != None and currency != '':
-            qs = qs.filter(t1__from_currency = currency)   
 
         # pagination
         page = request.GET.get('page')
@@ -98,9 +105,10 @@ class OrderSequenceResultViewSet(viewsets.ModelViewSet):
         if not scenario.is_valid:
             return Response(status=200, data={'error': scenario.error_message})
         scenario.execute()
+        print('estimated:{} result:{}'.format(scenario.profit, scenario.result.profit))
         if not scenario.is_valid:
             return Response(status=200, data={ 'error': scenario.error_message })
-        return Response(status=200, data={ 'success': True })
+        return Response(status=200, data={ 'success': True, 'profit': scenario.profit })
 
 
 class OrderViewSet(viewsets.ModelViewSet):
@@ -125,7 +133,5 @@ class BalanceView(APIView):
     authentication_classes = (TokenAuthentication,)
 
     def get(self, request, format=None):
-        client = Client(request.user.api_key, request.user.api_secret_key)
-        balances = [asset for asset in client.get_account().get('balances') if float(asset.get("free")) > 0 or float(asset.get("locked")) > 0]
-        data = BalanceSerializer(balances, many=True).data
+        data = BalanceSerializer(request.user.balances, many=True).data
         return Response(status=200, data=data)

@@ -20,20 +20,67 @@
         label="api_secret_key"
         required
       ></v-text-field>
-
-      <v-select
-        v-model="form.data.currency"
-        :items="form.startCurrency"
-        label="開始通貨"
-      ></v-select>
-
-      <v-text-field
-        type="number"
-        v-model="form.data.scenario_unit"
-        label="シナリオ実行数量"
-        required
-      ></v-text-field>
       
+      <fieldset>
+        <legend align="left">開始通貨</legend>
+        <v-container>
+          <v-row>
+            <v-col
+              align-center
+              cols="4"
+              md="4"
+            >
+              <v-checkbox
+                v-model="form.data.do_btc"
+                label="BTC"
+              ></v-checkbox>
+              <v-checkbox
+                v-model="form.data.do_eth"
+                label="ETH"
+              ></v-checkbox>
+              <v-checkbox
+                v-model="form.data.do_usd"
+                label="USD"
+              ></v-checkbox>
+              <v-checkbox
+                v-model="form.data.do_bnb"
+                label="BNB"
+              ></v-checkbox>
+            </v-col>
+            <v-col
+              cols="8"
+              md="8"
+            >
+              <v-text-field
+                v-model="form.data.btc_unit_amount"
+                label="UNIT数量"
+                required
+                :disabled="!form.data.do_btc"
+              ></v-text-field>
+              <v-text-field
+                v-model="form.data.eth_unit_amount"
+                label="UNIT数量"
+                required
+                :disabled="!form.data.do_eth"
+              ></v-text-field>
+              <v-text-field
+                v-model="form.data.usd_unit_amount"
+                label="UNIT数量"
+                required
+                :disabled="!form.data.do_usd"
+              ></v-text-field>
+              <v-text-field
+                v-model="form.data.bnb_unit_amount"
+                label="UNIT数量"
+                required
+                :disabled="!form.data.do_bnb"
+              ></v-text-field>
+
+            </v-col>
+          </v-row>
+        </v-container>
+      </fieldset>
+    
       <v-text-field
         type="number"
         v-model="form.data.target_profit_rate"
@@ -65,7 +112,14 @@
     </v-flex>
   </v-layout>
 </template>
-
+<style scoped>
+  fieldset {
+    padding: 10px;
+  }
+  legend {
+    color: white
+  }
+</style>
 <script>
 export default {
   name: 'top',

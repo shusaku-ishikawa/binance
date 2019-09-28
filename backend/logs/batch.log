@@ -12377,3 +12377,219 @@
 [INFO]	asctime:2019-09-28 12:05:21,304	module:make_scenario	message:END
 [INFO]	asctime:2019-09-28 12:06:21,634	module:make_scenario	message:END
 [INFO]	asctime:2019-09-28 12:07:22,081	module:make_scenario	message:END
+[INFO]	asctime:2019-09-28 13:53:41,789	module:update_user_info	message:START
+[INFO]	asctime:2019-09-28 13:54:00,646	module:update_user_info	message:START
+[INFO]	asctime:2019-09-28 13:54:33,491	module:update_user_info	message:START
+[INFO]	asctime:2019-09-28 13:54:34,202	module:update_user_info	message:END
+[INFO]	asctime:2019-09-28 14:00:47,383	module:check_order_status	message:START
+[INFO]	asctime:2019-09-28 14:01:45,799	module:check_order_status	message:˜END
+[INFO]	asctime:2019-09-28 14:03:35,308	module:check_order_status	message:START
+[INFO]	asctime:2019-09-28 14:04:33,021	module:check_order_status	message:˜END
+[INFO]	asctime:2019-09-28 14:07:33,457	module:make_scenario	message:START
+[INFO]	asctime:2019-09-28 14:08:57,930	module:make_scenario	message:START
+[INFO]	asctime:2019-09-28 14:09:01,963	module:make_scenario	message:Max active scenario exceeded ishikawasyuusaku@gmail.com
+[INFO]	asctime:2019-09-28 14:09:02,970	module:make_scenario	message:Max active scenario exceeded ishikawasyuusaku@gmail.com
+[INFO]	asctime:2019-09-28 14:09:03,979	module:make_scenario	message:Max active scenario exceeded ishikawasyuusaku@gmail.com
+[INFO]	asctime:2019-09-28 14:09:04,987	module:make_scenario	message:Max active scenario exceeded ishikawasyuusaku@gmail.com
+[INFO]	asctime:2019-09-28 14:09:05,996	module:make_scenario	message:Max active scenario exceeded ishikawasyuusaku@gmail.com
+[INFO]	asctime:2019-09-28 14:10:59,396	module:make_scenario	message:START
+[INFO]	asctime:2019-09-28 14:14:38,191	module:make_scenario	message:START
+[INFO]	asctime:2019-09-28 14:16:05,218	module:make_scenario	message:START
+[INFO]	asctime:2019-09-28 14:20:54,653	module:make_scenario	message:START
+[INFO]	asctime:2019-09-28 14:22:22,081	module:make_scenario	message:START
+[INFO]	asctime:2019-09-28 14:26:19,956	module:make_scenario	message:START
+[ERROR]	asctime:2019-09-28 14:26:47,713	module:make_scenario	message:板に売エントリがありません
+[ERROR]	asctime:2019-09-28 14:26:51,155	module:make_scenario	message:板に買エントリがありません
+[INFO]	asctime:2019-09-28 14:38:49,861	module:check_order_status	message:START
+[INFO]	asctime:2019-09-28 14:39:46,645	module:check_order_status	message:˜END
+[INFO]	asctime:2019-09-28 23:18:01,517	module:check_order_status	message:START
+[INFO]	asctime:2019-09-28 23:22:32,899	module:make_scenario	message:START
+[INFO]	asctime:2019-09-28 23:22:33,029	module:make_scenario	message:try BTC-ETH-ADA-BTC..
+[INFO]	asctime:2019-09-28 23:23:13,418	module:make_scenario	message:START
+[INFO]	asctime:2019-09-28 23:23:13,511	module:make_scenario	message:try BTC-ETH-ADA-BTC..
+[INFO]	asctime:2019-09-28 23:23:16,532	module:make_scenario	message:this scenario is not profitable. profit_rate:-0.0048879478031278855
+[INFO]	asctime:2019-09-28 23:23:16,534	module:make_scenario	message:try BTC-ETH-ADX-BTC..
+[INFO]	asctime:2019-09-28 23:23:19,465	module:make_scenario	message:this scenario is not profitable. profit_rate:-0.009134853271419328
+[INFO]	asctime:2019-09-28 23:23:19,467	module:make_scenario	message:try BTC-ETH-AE-BTC..
+[INFO]	asctime:2019-09-28 23:23:22,451	module:make_scenario	message:this scenario is not profitable. profit_rate:-0.010617263670728605
+[INFO]	asctime:2019-09-28 23:23:22,454	module:make_scenario	message:try BTC-ETH-AGI-BTC..
+[INFO]	asctime:2019-09-28 23:23:25,409	module:make_scenario	message:this scenario is not profitable. profit_rate:0.0003205362571582257
+[INFO]	asctime:2019-09-28 23:23:25,412	module:make_scenario	message:try BTC-ETH-AION-BTC..
+[INFO]	asctime:2019-09-28 23:23:28,304	module:make_scenario	message:this scenario is not profitable. profit_rate:0.0001502584445245823
+[INFO]	asctime:2019-09-28 23:23:28,308	module:make_scenario	message:try BTC-ETH-AMB-BTC..
+[INFO]	asctime:2019-09-28 23:23:31,192	module:make_scenario	message:this scenario is not profitable. profit_rate:0.0032255479424610337
+[INFO]	asctime:2019-09-28 23:23:31,195	module:make_scenario	message:try BTC-ETH-APPC-BTC..
+[INFO]	asctime:2019-09-28 23:23:35,554	module:make_scenario	message:this scenario is not profitable. profit_rate:-0.004147914220332394
+[INFO]	asctime:2019-09-28 23:23:35,556	module:make_scenario	message:try BTC-ETH-ARDR-BTC..
+[INFO]	asctime:2019-09-28 23:23:38,529	module:make_scenario	message:this scenario is not profitable. profit_rate:-0.004850622864072319
+[INFO]	asctime:2019-09-28 23:23:38,532	module:make_scenario	message:try BTC-ETH-ARK-BTC..
+[INFO]	asctime:2019-09-28 23:23:41,444	module:make_scenario	message:this scenario is not profitable. profit_rate:-0.003046672212144597
+[INFO]	asctime:2019-09-28 23:23:41,446	module:make_scenario	message:try BTC-ETH-ARN-BTC..
+[INFO]	asctime:2019-09-28 23:23:44,498	module:make_scenario	message:this scenario is not profitable. profit_rate:-0.03368376745071707
+[INFO]	asctime:2019-09-28 23:23:44,500	module:make_scenario	message:try BTC-ETH-AST-BTC..
+[INFO]	asctime:2019-09-28 23:23:47,436	module:make_scenario	message:this scenario is not profitable. profit_rate:0.0024453553281686895
+[INFO]	asctime:2019-09-28 23:23:47,439	module:make_scenario	message:try BTC-ETH-BAT-BTC..
+[INFO]	asctime:2019-09-28 23:23:50,398	module:make_scenario	message:this scenario is not profitable. profit_rate:-0.028402200819795352
+[INFO]	asctime:2019-09-28 23:23:50,400	module:make_scenario	message:try BTC-ETH-BCC-BTC..
+[ERROR]	asctime:2019-09-28 23:23:52,874	module:make_scenario	message:板に売エントリがありません
+[INFO]	asctime:2019-09-28 23:23:52,876	module:make_scenario	message:try BTC-ETH-BCD-BTC..
+[INFO]	asctime:2019-09-28 23:23:55,788	module:make_scenario	message:this scenario is not profitable. profit_rate:-0.0026257503933614615
+[INFO]	asctime:2019-09-28 23:23:55,791	module:make_scenario	message:try BTC-ETH-BCN-BTC..
+[ERROR]	asctime:2019-09-28 23:23:58,323	module:make_scenario	message:板に買エントリがありません
+[INFO]	asctime:2019-09-28 23:23:58,328	module:make_scenario	message:try BTC-ETH-BCPT-BTC..
+[INFO]	asctime:2019-09-28 23:24:01,289	module:make_scenario	message:this scenario is not profitable. profit_rate:0.0018843037497644618
+[INFO]	asctime:2019-09-28 23:24:01,293	module:make_scenario	message:try BTC-ETH-BLZ-BTC..
+[INFO]	asctime:2019-09-28 23:24:04,224	module:make_scenario	message:this scenario is not profitable. profit_rate:0.002014601349482217
+[INFO]	asctime:2019-09-28 23:24:04,227	module:make_scenario	message:try BTC-ETH-BNB-BTC..
+[INFO]	asctime:2019-09-28 23:24:07,106	module:make_scenario	message:this scenario is not profitable. profit_rate:-0.020042370714677453
+[INFO]	asctime:2019-09-28 23:24:07,109	module:make_scenario	message:try BTC-ETH-BNT-BTC..
+[INFO]	asctime:2019-09-28 23:24:10,004	module:make_scenario	message:this scenario is not profitable. profit_rate:-0.028168901091958576
+[INFO]	asctime:2019-09-28 23:24:10,007	module:make_scenario	message:try BTC-ETH-BQX-BTC..
+[INFO]	asctime:2019-09-28 23:24:12,892	module:make_scenario	message:this scenario is not profitable. profit_rate:-0.004172471517365405
+[INFO]	asctime:2019-09-28 23:24:12,894	module:make_scenario	message:try BTC-ETH-BRD-BTC..
+[INFO]	asctime:2019-09-28 23:24:15,747	module:make_scenario	message:this scenario is not profitable. profit_rate:-0.02450591774762317
+[INFO]	asctime:2019-09-28 23:24:15,750	module:make_scenario	message:try BTC-ETH-BTG-BTC..
+[INFO]	asctime:2019-09-28 23:24:18,644	module:make_scenario	message:this scenario is not profitable. profit_rate:-0.01544560417503011
+[INFO]	asctime:2019-09-28 23:24:18,647	module:make_scenario	message:try BTC-ETH-BTS-BTC..
+[INFO]	asctime:2019-09-28 23:24:21,673	module:make_scenario	message:this scenario is not profitable. profit_rate:-0.0043763720076807336
+[INFO]	asctime:2019-09-28 23:24:21,675	module:make_scenario	message:try BTC-ETH-CDT-BTC..
+[INFO]	asctime:2019-09-28 23:24:24,612	module:make_scenario	message:this scenario is not profitable. profit_rate:0.007910336139093423
+[INFO]	asctime:2019-09-28 23:24:24,615	module:make_scenario	message:try BTC-ETH-CHAT-BTC..
+[ERROR]	asctime:2019-09-28 23:24:27,010	module:make_scenario	message:板に売エントリがありません
+[INFO]	asctime:2019-09-28 23:24:27,013	module:make_scenario	message:try BTC-ETH-CLOAK-BTC..
+[ERROR]	asctime:2019-09-28 23:24:29,454	module:make_scenario	message:板に売エントリがありません
+[INFO]	asctime:2019-09-28 23:24:29,459	module:make_scenario	message:try BTC-ETH-CMT-BTC..
+[INFO]	asctime:2019-09-28 23:24:32,349	module:make_scenario	message:this scenario is not profitable. profit_rate:0.0021984309828191116
+[INFO]	asctime:2019-09-28 23:24:32,351	module:make_scenario	message:try BTC-ETH-CND-BTC..
+[INFO]	asctime:2019-09-28 23:24:35,274	module:make_scenario	message:this scenario is not profitable. profit_rate:0.0038252090311076846
+[INFO]	asctime:2019-09-28 23:24:35,276	module:make_scenario	message:try BTC-ETH-CVC-BTC..
+[INFO]	asctime:2019-09-28 23:24:38,149	module:make_scenario	message:this scenario is not profitable. profit_rate:-0.0002710522247364268
+[INFO]	asctime:2019-09-28 23:24:38,152	module:make_scenario	message:try BTC-ETH-DASH-BTC..
+[INFO]	asctime:2019-09-28 23:24:41,051	module:make_scenario	message:this scenario is not profitable. profit_rate:-0.01745612379694282
+[INFO]	asctime:2019-09-28 23:24:41,054	module:make_scenario	message:try BTC-ETH-DATA-BTC..
+[INFO]	asctime:2019-09-28 23:24:43,968	module:make_scenario	message:this scenario is not profitable. profit_rate:0.004055361710158079
+[INFO]	asctime:2019-09-28 23:24:43,970	module:make_scenario	message:try BTC-ETH-DENT-BTC..
+[INFO]	asctime:2019-09-28 23:24:46,952	module:make_scenario	message:this scenario is not profitable. profit_rate:0.1589899462239888
+[INFO]	asctime:2019-09-28 23:24:46,954	module:make_scenario	message:try BTC-ETH-DGD-BTC..
+[INFO]	asctime:2019-09-28 23:24:49,858	module:make_scenario	message:this scenario is not profitable. profit_rate:0.002418251072659915
+[INFO]	asctime:2019-09-28 23:24:49,861	module:make_scenario	message:try BTC-ETH-DLT-BTC..
+[INFO]	asctime:2019-09-28 23:24:52,790	module:make_scenario	message:this scenario is not profitable. profit_rate:-0.005197244457108687
+[INFO]	asctime:2019-09-28 23:24:52,793	module:make_scenario	message:try BTC-ETH-DNT-BTC..
+[INFO]	asctime:2019-09-28 23:24:55,700	module:make_scenario	message:this scenario is not profitable. profit_rate:0.005789208594115274
+[INFO]	asctime:2019-09-28 23:24:55,703	module:make_scenario	message:try BTC-ETH-DOCK-BTC..
+[INFO]	asctime:2019-09-28 23:24:58,619	module:make_scenario	message:this scenario is not profitable. profit_rate:0.0011138528168936352
+[INFO]	asctime:2019-09-28 23:24:58,622	module:make_scenario	message:try BTC-ETH-EDO-BTC..
+[INFO]	asctime:2019-09-28 23:25:01,547	module:make_scenario	message:this scenario is not profitable. profit_rate:-0.010616723245706903
+[INFO]	asctime:2019-09-28 23:25:01,549	module:make_scenario	message:try BTC-ETH-ELF-BTC..
+[INFO]	asctime:2019-09-28 23:25:04,476	module:make_scenario	message:this scenario is not profitable. profit_rate:-0.014981822122722498
+[INFO]	asctime:2019-09-28 23:25:04,478	module:make_scenario	message:try BTC-ETH-ENG-BTC..
+[INFO]	asctime:2019-09-28 23:25:07,441	module:make_scenario	message:this scenario is not profitable. profit_rate:-0.05841303232890351
+[INFO]	asctime:2019-09-28 23:25:07,443	module:make_scenario	message:try BTC-ETH-ENJ-BTC..
+[INFO]	asctime:2019-09-28 23:25:10,449	module:make_scenario	message:this scenario is not profitable. profit_rate:-0.010087262347110226
+[INFO]	asctime:2019-09-28 23:25:10,454	module:make_scenario	message:try BTC-ETH-EOS-BTC..
+[INFO]	asctime:2019-09-28 23:25:13,499	module:make_scenario	message:this scenario is not profitable. profit_rate:-0.00741809976189807
+[INFO]	asctime:2019-09-28 23:25:13,502	module:make_scenario	message:try BTC-ETH-ETC-BTC..
+[INFO]	asctime:2019-09-28 23:25:16,485	module:make_scenario	message:this scenario is not profitable. profit_rate:-0.009837727685674562
+[INFO]	asctime:2019-09-28 23:25:16,488	module:make_scenario	message:try BTC-ETH-EVX-BTC..
+[INFO]	asctime:2019-09-28 23:25:19,421	module:make_scenario	message:this scenario is not profitable. profit_rate:-0.06941229517498185
+[INFO]	asctime:2019-09-28 23:25:19,424	module:make_scenario	message:try BTC-ETH-FUEL-BTC..
+[INFO]	asctime:2019-09-28 23:25:22,390	module:make_scenario	message:this scenario is not profitable. profit_rate:0.00503071143899434
+[INFO]	asctime:2019-09-28 23:25:22,393	module:make_scenario	message:try BTC-ETH-FUN-BTC..
+[INFO]	asctime:2019-09-28 23:25:25,337	module:make_scenario	message:this scenario is not profitable. profit_rate:0.022588751203478467
+[INFO]	asctime:2019-09-28 23:25:25,340	module:make_scenario	message:try BTC-ETH-GNT-BTC..
+[INFO]	asctime:2019-09-28 23:25:28,256	module:make_scenario	message:this scenario is not profitable. profit_rate:0.0008333132534958997
+[INFO]	asctime:2019-09-28 23:25:28,258	module:make_scenario	message:try BTC-ETH-GRS-BTC..
+[INFO]	asctime:2019-09-28 23:25:31,199	module:make_scenario	message:this scenario is not profitable. profit_rate:-0.022940131777754797
+[INFO]	asctime:2019-09-28 23:25:31,202	module:make_scenario	message:try BTC-ETH-GTO-BTC..
+[INFO]	asctime:2019-09-28 23:25:34,167	module:make_scenario	message:this scenario is not profitable. profit_rate:0.0003011833493797129
+[INFO]	asctime:2019-09-28 23:25:34,170	module:make_scenario	message:try BTC-ETH-GVT-BTC..
+[INFO]	asctime:2019-09-28 23:25:37,338	module:make_scenario	message:this scenario is not profitable. profit_rate:0.0018673367661542198
+[INFO]	asctime:2019-09-28 23:25:37,341	module:make_scenario	message:try BTC-ETH-GXS-BTC..
+[INFO]	asctime:2019-09-28 23:25:40,338	module:make_scenario	message:this scenario is not profitable. profit_rate:-0.0013953511717436369
+[INFO]	asctime:2019-09-28 23:25:40,341	module:make_scenario	message:try BTC-ETH-HC-BTC..
+[INFO]	asctime:2019-09-28 23:25:43,264	module:make_scenario	message:this scenario is not profitable. profit_rate:0.0006123772484785938
+[INFO]	asctime:2019-09-28 23:25:43,266	module:make_scenario	message:try BTC-ETH-HOT-BTC..
+[INFO]	asctime:2019-09-28 23:25:46,237	module:make_scenario	message:this scenario is not profitable. profit_rate:0.10646331323631603
+[INFO]	asctime:2019-09-28 23:25:46,240	module:make_scenario	message:try BTC-ETH-HSR-BTC..
+[ERROR]	asctime:2019-09-28 23:25:48,614	module:make_scenario	message:板に売エントリがありません
+[INFO]	asctime:2019-09-28 23:25:48,619	module:make_scenario	message:try BTC-ETH-ICN-BTC..
+[ERROR]	asctime:2019-09-28 23:25:51,064	module:make_scenario	message:板に売エントリがありません
+[INFO]	asctime:2019-09-28 23:25:51,066	module:make_scenario	message:try BTC-ETH-ICX-BTC..
+[INFO]	asctime:2019-09-28 23:25:53,952	module:make_scenario	message:this scenario is not profitable. profit_rate:-0.013448300760566094
+[INFO]	asctime:2019-09-28 23:25:53,955	module:make_scenario	message:try BTC-ETH-INS-BTC..
+[INFO]	asctime:2019-09-28 23:25:56,905	module:make_scenario	message:this scenario is not profitable. profit_rate:-0.0011930051800485425
+[INFO]	asctime:2019-09-28 23:25:56,908	module:make_scenario	message:try BTC-ETH-IOST-BTC..
+[INFO]	asctime:2019-09-28 23:25:59,806	module:make_scenario	message:this scenario is not profitable. profit_rate:-0.00018041206114766125
+[INFO]	asctime:2019-09-28 23:25:59,809	module:make_scenario	message:try BTC-ETH-IOTA-BTC..
+[INFO]	asctime:2019-09-28 23:26:02,778	module:make_scenario	message:this scenario is not profitable. profit_rate:-0.06018159744396134
+[INFO]	asctime:2019-09-28 23:26:02,781	module:make_scenario	message:try BTC-ETH-IOTX-BTC..
+[INFO]	asctime:2019-09-28 23:26:05,699	module:make_scenario	message:this scenario is not profitable. profit_rate:0.0016240145640022137
+[INFO]	asctime:2019-09-28 23:26:05,702	module:make_scenario	message:try BTC-ETH-KEY-BTC..
+[INFO]	asctime:2019-09-28 23:26:08,747	module:make_scenario	message:this scenario is not profitable. profit_rate:0.02345238333968356
+[INFO]	asctime:2019-09-28 23:26:08,754	module:make_scenario	message:try BTC-ETH-KMD-BTC..
+[INFO]	asctime:2019-09-28 23:26:11,703	module:make_scenario	message:this scenario is not profitable. profit_rate:0.0029177612449114644
+[INFO]	asctime:2019-09-28 23:26:11,712	module:make_scenario	message:try BTC-ETH-KNC-BTC..
+[INFO]	asctime:2019-09-28 23:26:14,627	module:make_scenario	message:this scenario is not profitable. profit_rate:-0.026673458705274326
+[INFO]	asctime:2019-09-28 23:26:14,632	module:make_scenario	message:try BTC-ETH-LEND-BTC..
+[INFO]	asctime:2019-09-28 23:26:17,569	module:make_scenario	message:this scenario is not profitable. profit_rate:0.020032702358381737
+[INFO]	asctime:2019-09-28 23:26:17,579	module:make_scenario	message:try BTC-ETH-LINK-BTC..
+[INFO]	asctime:2019-09-28 23:26:20,488	module:make_scenario	message:this scenario is not profitable. profit_rate:-0.3858113231771658
+[INFO]	asctime:2019-09-28 23:26:20,490	module:make_scenario	message:try BTC-ETH-LOOM-BTC..
+[INFO]	asctime:2019-09-28 23:26:23,452	module:make_scenario	message:this scenario is not profitable. profit_rate:-0.0019460912656615206
+[INFO]	asctime:2019-09-28 23:26:23,454	module:make_scenario	message:try BTC-ETH-LRC-BTC..
+[INFO]	asctime:2019-09-28 23:26:26,272	module:make_scenario	message:this scenario is not profitable. profit_rate:-0.0043235326572170895
+[INFO]	asctime:2019-09-28 23:26:26,275	module:make_scenario	message:try BTC-ETH-LSK-BTC..
+[INFO]	asctime:2019-09-28 23:26:29,194	module:make_scenario	message:this scenario is not profitable. profit_rate:0.000812504952769388
+[INFO]	asctime:2019-09-28 23:26:29,197	module:make_scenario	message:try BTC-ETH-LTC-BTC..
+[INFO]	asctime:2019-09-28 23:26:32,494	module:make_scenario	message:START
+[INFO]	asctime:2019-09-28 23:26:32,597	module:make_scenario	message:try BTC-ETH-ADA-BTC..
+[INFO]	asctime:2019-09-28 23:26:35,612	module:make_scenario	message:this scenario is not profitable. profit_rate:-0.8175589595433708
+[INFO]	asctime:2019-09-28 23:26:35,615	module:make_scenario	message:try BTC-ETH-ADX-BTC..
+[INFO]	asctime:2019-09-28 23:26:38,637	module:make_scenario	message:this scenario is not profitable. profit_rate:-1.0141743657648439
+[INFO]	asctime:2019-09-28 23:26:38,641	module:make_scenario	message:try BTC-ETH-AE-BTC..
+[INFO]	asctime:2019-09-28 23:26:41,548	module:make_scenario	message:this scenario is not profitable. profit_rate:-0.977923011882517
+[INFO]	asctime:2019-09-28 23:26:41,551	module:make_scenario	message:try BTC-ETH-AGI-BTC..
+[INFO]	asctime:2019-09-28 23:26:44,495	module:make_scenario	message:this scenario is not profitable. profit_rate:0.1785588893235828
+[INFO]	asctime:2019-09-28 23:26:44,499	module:make_scenario	message:try BTC-ETH-AION-BTC..
+[INFO]	asctime:2019-09-28 23:26:47,396	module:make_scenario	message:this scenario is not profitable. profit_rate:0.1564898131150501
+[INFO]	asctime:2019-09-28 23:26:47,398	module:make_scenario	message:try BTC-ETH-AMB-BTC..
+[INFO]	asctime:2019-09-28 23:26:50,455	module:make_scenario	message:this scenario is not profitable. profit_rate:0.04112873293408368
+[INFO]	asctime:2019-09-28 23:26:50,457	module:make_scenario	message:try BTC-ETH-APPC-BTC..
+[INFO]	asctime:2019-09-28 23:26:53,382	module:make_scenario	message:this scenario is not profitable. profit_rate:-0.30691737603697455
+[INFO]	asctime:2019-09-28 23:26:53,385	module:make_scenario	message:try BTC-ETH-ARDR-BTC..
+[INFO]	asctime:2019-09-28 23:26:56,703	module:make_scenario	message:this scenario is not profitable. profit_rate:-0.40021505290060616
+[INFO]	asctime:2019-09-28 23:26:56,712	module:make_scenario	message:try BTC-ETH-ARK-BTC..
+[INFO]	asctime:2019-09-28 23:26:59,621	module:make_scenario	message:this scenario is not profitable. profit_rate:-0.21966690873491923
+[INFO]	asctime:2019-09-28 23:26:59,624	module:make_scenario	message:try BTC-ETH-ARN-BTC..
+[INFO]	asctime:2019-09-28 23:27:02,541	module:make_scenario	message:this scenario is not profitable. profit_rate:-3.3116768461519936
+[INFO]	asctime:2019-09-28 23:27:02,544	module:make_scenario	message:try BTC-ETH-AST-BTC..
+[INFO]	asctime:2019-09-28 23:27:05,483	module:make_scenario	message:this scenario is profitable. profit rate:0.3722877433040889
+[INFO]	asctime:2019-09-28 23:27:05,485	module:make_scenario	message:try BTC-ETH-BAT-BTC..
+[INFO]	asctime:2019-09-28 23:27:08,408	module:make_scenario	message:this scenario is not profitable. profit_rate:-2.676004756003953
+[INFO]	asctime:2019-09-28 23:27:08,410	module:make_scenario	message:try BTC-ETH-BCC-BTC..
+[ERROR]	asctime:2019-09-28 23:27:10,828	module:make_scenario	message:板に売エントリがありません
+[INFO]	asctime:2019-09-28 23:27:10,833	module:make_scenario	message:try BTC-ETH-BCD-BTC..
+[INFO]	asctime:2019-09-28 23:27:35,811	module:make_scenario	message:START
+[INFO]	asctime:2019-09-28 23:27:35,906	module:make_scenario	message:try BTC-ETH-ADA-BTC..
+[INFO]	asctime:2019-09-28 23:27:38,985	module:make_scenario	message:this scenario is not profitable. profit_rate:-0.7897
+[INFO]	asctime:2019-09-28 23:27:38,990	module:make_scenario	message:try BTC-ETH-ADX-BTC..
+[INFO]	asctime:2019-09-28 23:27:41,990	module:make_scenario	message:this scenario is not profitable. profit_rate:-0.9725
+[INFO]	asctime:2019-09-28 23:27:41,994	module:make_scenario	message:try BTC-ETH-AE-BTC..
+[INFO]	asctime:2019-09-28 23:27:45,035	module:make_scenario	message:this scenario is not profitable. profit_rate:-0.9745
+[INFO]	asctime:2019-09-28 23:27:45,041	module:make_scenario	message:try BTC-ETH-AGI-BTC..
+[INFO]	asctime:2019-09-28 23:27:49,882	module:make_scenario	message:START
+[INFO]	asctime:2019-09-28 23:27:50,280	module:make_scenario	message:try BTC-ETH-ADA-BTC..
+[INFO]	asctime:2019-09-28 23:27:53,436	module:make_scenario	message:this scenario is not profitable. profit_rate:-0.781
+[INFO]	asctime:2019-09-28 23:27:53,438	module:make_scenario	message:try BTC-ETH-ADX-BTC..
+[INFO]	asctime:2019-09-28 23:27:56,392	module:make_scenario	message:this scenario is not profitable. profit_rate:-0.976
+[INFO]	asctime:2019-09-28 23:27:56,395	module:make_scenario	message:try BTC-ETH-AE-BTC..
+[INFO]	asctime:2019-09-28 23:27:59,316	module:make_scenario	message:this scenario is not profitable. profit_rate:-0.978
+[INFO]	asctime:2019-09-28 23:27:59,318	module:make_scenario	message:try BTC-ETH-AGI-BTC..
+[INFO]	asctime:2019-09-28 23:28:02,195	module:make_scenario	message:this scenario is profitable. profit rate:0.597
+[INFO]	asctime:2019-09-28 23:28:02,197	module:make_scenario	message:try BTC-ETH-AION-BTC..
+[INFO]	asctime:2019-09-28 23:28:05,064	module:make_scenario	message:this scenario is not profitable. profit_rate:0.195
+[INFO]	asctime:2019-09-28 23:28:05,067	module:make_scenario	message:try BTC-ETH-AMB-BTC..
+[INFO]	asctime:2019-09-28 23:28:07,925	module:make_scenario	message:this scenario is not profitable. profit_rate:0.079
+[INFO]	asctime:2019-09-28 23:28:07,928	module:make_scenario	message:try BTC-ETH-APPC-BTC..
+[INFO]	asctime:2019-09-28 23:28:10,862	module:make_scenario	message:this scenario is not profitable. profit_rate:-0.255
+[INFO]	asctime:2019-09-28 23:28:10,875	module:make_scenario	message:try BTC-ETH-ARDR-BTC..

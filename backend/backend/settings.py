@@ -196,6 +196,7 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
 # JOBs
 CRONJOBS = [
     ('* * * * *', 'django.core.management.call_command', ['check_order_status']),
-    ('* * * * *', 'django.core.management.call_command', ['make_scenario']),
+    ('0 * * * *', 'django.core.management.call_command', ['make_scenario']),
+    ('0 0 * * *', 'django.core.management.call_command', ['update_user_info'])    
 ]
-CRONTAB_LOCK_JOBS = False
+CRONTAB_LOCK_JOBS = True

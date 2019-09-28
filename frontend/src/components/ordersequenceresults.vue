@@ -143,10 +143,10 @@ export default {
     await vueinstance.fetchData(vueinstance.pagination.page)
     vueinstance.intervalId = setInterval(function () {
       vueinstance.fetchData(vueinstance.pagination.page)
-    }, 3000)
+    }, 5000)
     this.loading = false
   },
-  beforeDestroy () {
+  destroyed () {
     clearInterval(this.intervalId)
   },
   watch: {
