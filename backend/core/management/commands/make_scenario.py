@@ -14,7 +14,7 @@ class Command(BaseCommand):
         time_started = time.time()
         n = 0
         while True:
-            time.sleep(1)
+            time.sleep(3)
             n = n + 1
             time_elapsed = time.time() - time_started
             if time_elapsed > 55.0:
