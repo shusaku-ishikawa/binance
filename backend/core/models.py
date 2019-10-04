@@ -379,7 +379,6 @@ class Order(models.Model):
             print('{symbol}/qty:{quantity}/price:{price}の注文に失敗:{err}'.format(symbol = self.str_symbol, quantity = self.quatity, price = self.safe_price, err =str(e)))
         
         else:
-            print(result)
             self.order_id = result.get('orderId')
             self.time = result.get('transactTime') / 1000
             self.status = result.get('status')

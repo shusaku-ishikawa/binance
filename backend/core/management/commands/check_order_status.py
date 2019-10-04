@@ -43,9 +43,10 @@ class Command(BaseCommand):
                     o2.cancel()
                     o3.cancel()
                     continue
+                elif o1.status == ORDER_STATUS_EXPIRED:
+                    o1.place()
                 elif o1.status == ORDER_STATUS_FILLED:
                     pass
-            
                 
                 if not o2.status:
                     o2.place()
@@ -55,6 +56,8 @@ class Command(BaseCommand):
                     if o2.status == ORDER_STATUS_FILLED:
                         o3.place()
                     continue
+                elif o2.status == ORDER_STATUS_EXPIRED:
+                    o2.place()
                 elif o2.status == ORDER_STATUS_FILLED:
                     pass
                 
@@ -63,8 +66,9 @@ class Command(BaseCommand):
                     o3.place()
                     continue
                 elif o3.is_open:
-                    
                     o3.update_status()
+                elif o3.status == ORDER_STATUS_EXPIRED:
+                    o3.place()
                 elif o3.status == ORDER_STATUS_FILLED:
                     pass
 
