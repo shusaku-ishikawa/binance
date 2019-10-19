@@ -66,7 +66,7 @@ export default {
     try {
       let result = await this.$store.dispatch(
         'http/get',
-        { url: 'balance' },
+        { url: 'balance/' },
         { root: true }
       )
       this.data = result.data

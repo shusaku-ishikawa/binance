@@ -6,7 +6,10 @@
       xs10
       offset-xs1
     >
+    <div
+        v-show="loading" class="loader">Now loading...</div>
     <v-form
+      v-show="!loading"
       ref="form"
     >
       <v-text-field
@@ -125,6 +128,7 @@ export default {
   name: 'top',
   data () {
     return {
+      loading: true,
       form: {
         data: {},
         startCurrency: ['BTC', 'ETH', 'USDT', 'BNB']
@@ -133,6 +137,7 @@ export default {
   },
   async created () {
     try {
+      this.loading = true
       let url = this.$store.getters['auth/userInfoGetUrl']
       let result = await this.$store.dispatch(
         'http/get',
@@ -143,8 +148,11 @@ export default {
         this.form.data = result.data
       }
     } catch (err) {
-      throw err
+      this.flash(err, 'error', {
+        timeout: 1500
+      })
     }
+    this.loading = false
   },
   methods: {
     async save () {

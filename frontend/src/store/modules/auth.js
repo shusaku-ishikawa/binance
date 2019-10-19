@@ -3,13 +3,14 @@ export default {
   state: {
     userid: '',
     username: '',
-    token: '',
+    token: localStorage.getItem('token') || '',
     api_key: '',
     api_secret_key: '',
     currency: ''
   },
   mutations: {
     create (state, data) {
+      localStorage.setItem('token', data.token)
       state.userid = data.userid
       state.token = data.token
       state.username = data.username
@@ -36,7 +37,7 @@ export default {
       return state.currency
     },
     userInfoGetUrl: (state, getters) => {
-      return 'users/' + state.userid
+      return 'users/' + state.userid + '/'
     },
     userInfoPostUrl: (state, getters) => {
       return getters.userInfoGetUrl + '/'
@@ -61,6 +62,7 @@ export default {
           })
         }
       } catch (err) {
+        localStorage.removeItem('token')
         throw err
       }
     },

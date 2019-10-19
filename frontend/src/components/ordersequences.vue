@@ -147,7 +147,7 @@ export default {
   methods: {
     async fetchData (page) {
       this.loading = true
-      let pagedUrl = 'ordersequences?page=' + page
+      let pagedUrl = 'ordersequences/?page=' + page
       try {
         let result = await this.$store.dispatch(
           'http/get',
@@ -165,7 +165,7 @@ export default {
     },
     async showScenario (item) {
       this.processing = true
-      let url = 'ordersequences/' + item.id
+      let url = 'ordersequences/' + item.id + '/'
       try {
         let result = await this.$store.dispatch(
           'http/get',

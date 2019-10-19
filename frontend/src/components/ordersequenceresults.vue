@@ -163,7 +163,7 @@ export default {
   },
   methods: {
     async fetchData (page) {
-      let pagedUrl = 'ordersequenceresults?page=' + page
+      let pagedUrl = 'ordersequenceresults/?page=' + page
       try {
         let result = await this.$store.dispatch(
           'http/get',
