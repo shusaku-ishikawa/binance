@@ -4,7 +4,6 @@ from django.utils import timezone
 from django.core.management.base import BaseCommand
 from core.models import *
 from binance.client import Client
-from api.modules.helpers import _get_order_patterns
 from binance.enums import *
 
 class Command(BaseCommand):
@@ -18,7 +17,7 @@ class Command(BaseCommand):
         Symbol.objects.all().delete()
         user = User.objects.all()[0]
         client = user.get_binance_client()
-        if not client():
+        if not client:
             logger.error('APIキーが登録されていません')
             return
         info = client.get_exchange_info()

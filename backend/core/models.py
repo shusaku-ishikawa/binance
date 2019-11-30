@@ -65,11 +65,11 @@ class User(AbstractBaseUser, PermissionsMixin):
         default = 0.001
     )
     
-    do_usd = models.BooleanField(
-        verbose_name = 'USD',
+    do_usdt = models.BooleanField(
+        verbose_name = 'USTD',
         default = True
     )
-    usd_unit_amount = models.FloatField(
+    usdt_unit_amount = models.FloatField(
         default = 0.001
     )
     
@@ -146,8 +146,8 @@ class User(AbstractBaseUser, PermissionsMixin):
             ret.append('BTC')
         if self.do_eth:
             ret.append('ETH')
-        if self.do_usd:
-            ret.append('USD')
+        if self.do_usdt:
+            ret.append('USDT')
         if self.do_bnb:
             ret.append('BNB')
         return ret
@@ -205,7 +205,7 @@ class Symbol(models.Model):
             price = result.get('askPrice')
         return float(price)
     @staticmethod
-    def get_scenario_patterns(self, client, currency = None):
+    def get_scenario_patterns(client, currency = None):
         sql = ''
         sql += 'select'
         sql += '    t1.id as id,'
@@ -376,6 +376,9 @@ class Order(models.Model):
                     price=self.safe_price
                 )
         except Exception as e:
+            self.status = ORDER_STATUS_REJECTED
+            self.error_message = str(e)
+            self.save()
             print('{symbol}/qty:{quantity}/price:{price}の注文に失敗:{err}'.format(symbol = self.str_symbol, quantity = self.quatity, price = self.safe_price, err =str(e)))
         
         else:
@@ -383,6 +386,7 @@ class Order(models.Model):
             self.time = result.get('transactTime') / 1000
             self.status = result.get('status')
             self.save()
+        return self.status != ORDER_STATUS_REJECTED
     def cancel(self):
         if not self.status:
             self.status = ORDER_STATUS_CANCELED
@@ -652,14 +656,13 @@ class Scenario(object):
         t1_obj.symbol = self.orderseq.t1
         t1_obj.quantity = self.t1_info.get('quantity')
         t1_obj.price = self.t1_info.get('rate')
-        t1_obj.place()
-
+        
         t1_obj.save()
         
         # 注文が拒否もしくは期限切れした場合
         if t1_obj.status in { ORDER_STATUS_REJECTED, ORDER_STATUS_EXPIRED }:
             self.is_valid = False
-            self.error_message = '注文が失敗しました'
+            self.error_message = '注文が失敗しました {}'.format(t1_obj.error_message)
             return
         time.sleep(1)
             

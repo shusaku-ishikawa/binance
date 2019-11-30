@@ -14,7 +14,6 @@ class Command(BaseCommand):
         time_started = time.time()
         while True:
             time.sleep(3)
-            n = n + 1
             time_elapsed = time.time() - time_started
             if time_elapsed > 60 * 50:# 50分間継続する
                 break

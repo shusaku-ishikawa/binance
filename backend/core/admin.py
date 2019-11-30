@@ -18,11 +18,11 @@ class MyUserChangeForm(UserChangeForm):
 class MyUserCreationForm(UserCreationForm):
     class Meta:
         model = User
-        fields = ('email', 'api_key', 'api_secret_key', 'do_btc', 'do_eth', 'do_usd', 'do_bnb' )
+        fields = ('email', 'api_key', 'api_secret_key', 'do_btc', 'do_eth', 'do_usdt', 'do_bnb' )
 
 class MyUserAdmin(UserAdmin):
     fieldsets = (
-        (None, {'fields': ('email', 'api_key', 'api_secret_key', 'do_btc', 'do_eth', 'do_usd', 'do_bnb', 'password')}),
+        (None, {'fields': ('email', 'api_key', 'api_secret_key', 'do_btc', 'do_eth', 'do_usdt', 'do_bnb', 'password')}),
         (_('Personal info'), {'fields': ()}),
         (_('Permissions'), {'fields': ('is_active', 'is_staff', 'is_superuser')}),
         (_('Important dates'), {'fields': ('last_login',)}),
@@ -30,12 +30,12 @@ class MyUserAdmin(UserAdmin):
     add_fieldsets = (
         (None, {
             'classes': ('wide',),
-            'fields': ('email','api_key', 'api_secret_key', 'do_btc', 'do_eth', 'do_usd', 'do_bnb',  'password1', 'password2'),
+            'fields': ('email','api_key', 'api_secret_key', 'do_btc', 'do_eth', 'do_usdt', 'do_bnb',  'password1', 'password2'),
         }),
     )
     form = MyUserChangeForm
     add_form = MyUserCreationForm
-    list_display = ('email',  'api_key','api_secret_key', 'do_btc', 'do_eth', 'do_usd', 'do_bnb', 'is_staff',)
+    list_display = ('email',  'api_key','api_secret_key', 'do_btc', 'do_eth', 'do_usdt', 'do_bnb', 'is_staff',)
     search_fields = ('email',)
     ordering = ('email',)
 

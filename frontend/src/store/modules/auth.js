@@ -40,7 +40,7 @@ export default {
       return 'users/' + state.userid + '/'
     },
     userInfoPostUrl: (state, getters) => {
-      return getters.userInfoGetUrl + '/'
+      return getters.userInfoGetUrl
     }
   },
   actions: {

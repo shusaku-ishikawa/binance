@@ -21,15 +21,30 @@
               <td align="center" v-bind:class="osr.t1_result.status">{{ osr.t1_result.order_id }}</td>
               <td align="center" v-bind:class="osr.t1_result.status">{{ osr.t1_result.str_symbol }}/{{ osr.t1_result.side }}</td>
               <td align="center" v-bind:class="osr.t1_result.status">{{ osr.t1_result.price }}</td>
-              <td align="center" v-bind:class="osr.t1_result.status">{{ osr.t1_result.status }}</td>
+              <td align="center" v-bind:class="osr.t1_result.status">
+                {{ osr.t1_result.status }}
+                <span v-if="osr.t1_result.status === 'REJECTED'">
+                  {{ osr.t1_result.error_message }}
+                </span>
+              </td>
               <td align="center" v-bind:class="osr.t2_result.status">{{ osr.t2_result.order_id }}</td>
               <td align="center" v-bind:class="osr.t2_result.status">{{ osr.t2_result.str_symbol }}/{{ osr.t1_result.side }}</td>
               <td align="center" v-bind:class="osr.t2_result.status">{{ osr.t2_result.price }}</td>
-              <td align="center" v-bind:class="osr.t2_result.status">{{ osr.t2_result.status }}</td>
+              <td align="center" v-bind:class="osr.t2_result.status">
+                {{ osr.t2_result.status }}
+                <span v-if="osr.t2_result.status === 'REJECTED'">
+                  {{ osr.t2_result.error_message }}
+                </span>
+              </td>
               <td align="center" v-bind:class="osr.t3_result.status">{{ osr.t3_result.order_id }}</td>
               <td align="center" v-bind:class="osr.t3_result.status">{{ osr.t3_result.str_symbol }}/{{ osr.t1_result.side }}</td>
               <td align="center" v-bind:class="osr.t3_result.status">{{ osr.t3_result.price }}</td>
-              <td align="center" v-bind:class="osr.t3_result.status">{{ osr.t3_result.status }}</td>
+              <td align="center" v-bind:class="osr.t3_result.status">
+                {{ osr.t3_result.status }}
+                <span v-if="osr.t3_result.status === 'REJECTED'">
+                  {{ osr.t3_result.error_message }}
+                </span>
+              </td>
               <td align="center" v-bind:class="{ completed: osr.is_completed }">{{ osr.profit }}</td>
             </tr>
           </tbody>
@@ -95,6 +110,10 @@
   td.PARTIALLY_FILLED {
     background-color:lightsteelblue;
   }
+  td.REJECTED {
+    background-color : red
+  }
+
   td.completed {
     background-color: teal
   }

@@ -4,7 +4,7 @@ from core.models import *
 class UserSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = User
-        fields = ('id', 'username', 'password', 'api_key', 'api_secret_key', 'do_btc', 'btc_unit_amount', 'do_eth', 'eth_unit_amount', 'do_usd', 'usd_unit_amount', 'do_bnb', 'bnb_unit_amount', 'max_quantity_rate', 'target_profit_rate', 'max_active_scenario', 'auto_trading')
+        fields = ('id', 'username', 'password', 'api_key', 'api_secret_key', 'do_btc', 'btc_unit_amount', 'do_eth', 'eth_unit_amount', 'do_usdt', 'usdt_unit_amount', 'do_bnb', 'bnb_unit_amount', 'max_quantity_rate', 'target_profit_rate', 'max_active_scenario', 'auto_trading')
         write_only_fields = ('password')
         read_only_fields = ('id',)
 
@@ -28,7 +28,7 @@ class SymbolSerializer(serializers.ModelSerializer):
 class OrderSerializer(serializers.ModelSerializer):
     class Meta:
         model = Order
-        fields = ('order_id', 'str_symbol', 'side', 'quantity', 'quote_quantity', 'price', 'time', 'status')
+        fields = ('order_id', 'str_symbol', 'side', 'quantity', 'quote_quantity', 'price', 'time', 'status', 'error_message')
 
 class BinanceAPIDeserializer(serializers.Serializer):
     pass

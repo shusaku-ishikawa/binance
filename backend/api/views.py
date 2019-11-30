@@ -43,14 +43,14 @@ class OrderSequenceViewSet(viewsets.ModelViewSet):
     serializer_class = OrderSequenceSerializer
 
     def list(self, request):
-        base_currencies = ['BTC', 'ETH', 'USD', 'BNB']
+        base_currencies = ['BTC', 'ETH', 'USDT', 'BNB']
         qs = OrderSequence.objects.filter(t1__from_currency__in = base_currencies)
         if not request.user.do_btc:
             qs = qs.filter(~Q(t1__from_currency = 'BTC'))
         if not request.user.do_eth:
             qs = qs.filter(~Q(t1__from_currency = 'ETH'))
         if not request.user.do_usd:
-            qs = qs.filter(~Q(t1__from_currency = 'USD'))
+            qs = qs.filter(~Q(t1__from_currency = 'USDT'))
         if not request.user.do_bnb:
             qs = qs.filter(~Q(t1__from_currency = 'BNB'))
            

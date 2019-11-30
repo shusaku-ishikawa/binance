@@ -42,8 +42,8 @@
                 label="ETH"
               ></v-checkbox>
               <v-checkbox
-                v-model="form.data.do_usd"
-                label="USD"
+                v-model="form.data.do_usdt"
+                label="USDT"
               ></v-checkbox>
               <v-checkbox
                 v-model="form.data.do_bnb"
@@ -67,10 +67,10 @@
                 :disabled="!form.data.do_eth"
               ></v-text-field>
               <v-text-field
-                v-model="form.data.usd_unit_amount"
+                v-model="form.data.usdt_unit_amount"
                 label="UNIT数量"
                 required
-                :disabled="!form.data.do_usd"
+                :disabled="!form.data.do_usdt"
               ></v-text-field>
               <v-text-field
                 v-model="form.data.bnb_unit_amount"
